@@ -85,12 +85,20 @@ body, a {
 			font-size: 170%;
 			font-weight: normal;
 			margin-top:1.7em;
-			margin-bottom:1em;
+			margin-bottom:0;
 		}
 			body > article > h1 a {
 				text-decoration: none;
 			}
 			body > article > h1 a:underline {
+				text-decoration: none;
+			}
+		body > article > .reblogged {
+			text-align: center;
+			font-size: 130%;
+			margin-bottom:1em;
+		}
+			body > article > .reblogged a {
 				text-decoration: none;
 			}
 		body > article p {

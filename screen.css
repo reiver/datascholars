@@ -2,6 +2,18 @@ body {
 	font-family: serif;
 }
 
+body, a {
+	color:#303030;
+}
+
+
+	header  ,
+    article {
+		width: 800px;
+		margin: 0 auto;
+	}
+
+
 	header {
 
 	}
@@ -10,3 +22,34 @@ body {
 			font-variant: small-caps;
 			font-weight: normal;
 		}
+
+		header nav {
+			background-color: #fbfbfb;
+			border-top: 1px solid #eaeaea;
+			border-bottom: 1px solid #eaeaea;
+		}
+		header nav   ,
+		header nav a {
+			color: #707070;
+		}
+			header nav ul ,
+			header nav ol {
+				list-style: none;
+			}
+				header nav ul li ,
+				header nav ol li {
+					text-transform:uppercase;
+				}
+			header nav a {
+				text-decoration: none;
+			}
+			header nav a:hover {
+				text-decoration: underline;
+			}
+
+			header .blurb {
+				font-size: 80%;
+				text-align: center;
+				color: #707070;
+			}
+

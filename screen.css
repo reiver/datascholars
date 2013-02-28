@@ -27,21 +27,32 @@ body, a {
 			background-color: #fbfbfb;
 			border-top: 1px solid #eaeaea;
 			border-bottom: 1px solid #eaeaea;
+			text-align: center;
+			font-size:90%;
 		}
 		header nav   ,
 		header nav a {
-			color: #707070;
+			color: #909090;
 		}
 			header nav ul ,
 			header nav ol {
 				list-style: none;
+				margin:0;
+				padding:0;
 			}
 				header nav ul li ,
 				header nav ol li {
+					display: inline-block;
 					text-transform:uppercase;
 				}
+					header nav ul li a ,
+					header nav ol li a {
+						display: inline-block;
+						padding: 0.4em 1.4em;
+					}
 			header nav a {
 				text-decoration: none;
+				
 			}
 			header nav a:hover {
 				text-decoration: underline;

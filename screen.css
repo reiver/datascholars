@@ -22,6 +22,9 @@ body, a {
 			text-align: center;
 			font-variant: small-caps;
 			font-weight: bold;
+			font-size: 380%;
+			margin-top:0.4em;
+			margin-bottom:0.7em;
 		}
 		body > header h1   ,
 		body > header h1 a {

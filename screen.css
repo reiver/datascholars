@@ -67,7 +67,14 @@ body, a {
 				color: #707070;
 			}
 
-	body > article p{
-		line-height: 135%;
+	body > article {
+		margin-top: 4em;
 	}
+		body > article .pubdate {
+			text-align: center;
+			opacity: 0.7;
+		}
+		body > article p {
+			line-height: 135%;
+		}
 

@@ -86,8 +86,21 @@ body, a {
 			margin-top:1.7em;
 			margin-bottom:1em;
 		}
+			body > article > h1 a {
+				text-decoration: none;
+			}
+			body > article > h1 a:underline {
+				text-decoration: none;
+			}
 		body > article p {
 			line-height: 150%;
 			text-align: justify;
+		}
+
+		body > article .comments {
+			text-align: center;
+		}
+		body > article .comments {
+			margin-top: 3.5em;
 		}
 

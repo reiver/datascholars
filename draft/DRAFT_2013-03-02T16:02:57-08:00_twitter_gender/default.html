@@ -49,15 +49,15 @@
 					<figcaption>Twitter's signup form</figcaption>
 				</figure>
 				<p>
-					(You don't have to tell Twitter <em>where you live</em> or you <em>date of birth</em> or <em>gender</em>, etc.)
+					(You don't have to tell Twitter <em>where you live</em> or your <em>date of birth</em> or <em>gender</em>, etc.)
 				</p>
 				<p>
 					And really, the <em>name</em> doesn't even have to be real.
-					Using a pseudonyms or any other name you want to use is just fine.
+					Using a pseudonym or any other name you want to use is just fine.
 					If you want your name on Twitter to be "Panda Puncher", go right ahead.
 				</p>
 				<p>
-					(This is one of the strengths of Twitter in my opinion.)
+					(This is one of the strengths and attractions of Twitter in my opinion.)
 				</p>
 			</section>
 
@@ -69,25 +69,33 @@
 					Even though Twitter doesn't ask for your <em>gender</em>, doesn't mean no one cares about it.
 				</p>
 				<p>
-					(People involving in <em>advertising</em> care about it a lot, for instance. And so do people involved with <em>identity</em>.)
+					(People involving in <em>advertising</em> care about it a lot. People involved with <em>identity</em>. People involved in fraud detection care too.)
 				</p>
 				<p>
 					But if someone doesn't self-assert their <em>gender</em> (to say they are <em>male</em> or <em>female</em>), <strong>can we infer someone's gender from their Twitter account?</strong>
 				</p>
 				<p>
-					I'd says the answer is "yes".
-					(Probably because I've already worked on commercial projects that did <em>gender prediction</em> with similar type of data :-) )
+					I'd say the answer is "yes".
+					(Probably because I've already worked on commercial projects that did <em>gender prediction</em> with similar types of data :-) )
 				</p>
 				<p>
-					I think you can infer someone's gender without them <em>telling you</em> what it is, based on <em>clues</em> they leave around, with varying degrees of certainty.
-					I can even think of different ways of doing it.
+					I think you can infer someone's gender without them <em>telling you</em> what it is, based on <em>clues</em> they leave around, with varying degrees of success.
+				</p>
+				<p>
+					Consider, for example, a population that is 50% male and 50% female.
+					If you guessed "<em>male</em>" every single time, then (with a random sample) your <em>gender prediction</em> would be accurate 50% of the time.
+					This is kind of like the idiom: <em>a stopped clock is right twice a day</em>.
+				</p>
+				<p>
+					Any <em>gender prediction</em> engine we consider "good" should do better than this.
+					And I can even think of different ways that may work.
 				</p>
 
 				<section>
 					<h3>Examples</h3>
 
 					<p>
-						For example, consider the profile of a friend of mine of Twitter, in the following figure:
+						For example, consider the profile of a friend of mine of Twitter, in <strong>figure 1</strong>.
 					</p>
 					<figure>
 						<img src="harpersnotes-clues.png" />
@@ -116,15 +124,15 @@
 						It could be that males and females use language differently, and that the language used in the <em>description</em> is a <em>gender predictor</em>.
 					</p>
 					<p>
-						There is actually a fouth clue not marked in the <strong>figure 1</strong>.
+						There is actually a fourth clue not marked in the <strong>figure 1</strong>.
 						The Twitter screen name ("@harpersnotes").
-						Like the third clue, it could be that males and females use language differently.
+						Like the third clue, it could be that males and females use language differently for the Twitter screen name too.
 						And thus the words used the Twitter screen name could be a <em>gender predictor</em>.
 					</p>
 					<p>
-						Also, as a possible fifth clue also not shown in <strong>figure 1</strong>, it is conceivable that the location could be a <em>gender predictor</em>.
-						Perhaps not the location ("Albuquerque, New Mexico, USA ") in <strong>figure 1</strong>,
-						but say if the location is somewhere where there is a strong gender skew, like India or China, or even like a remote mining town in Northern Canada where the only people living there are workers, and all the miners are males.
+						As a possible fifth clue also not shown in <strong>figure 1</strong>, it is conceivable that the location could be a <em>gender predictor</em>.
+						Perhaps not the location in <strong>figure 1</strong> ("Albuquerque, New Mexico, USA "),
+						but say if the location is somewhere where there is a strong gender skew, such as India or China, or even a remote mining town in Northern Canada where the only people living there are mining workers, and all the miners are males.
 					</p>
 					<p>
 						(And Twitter does offer us other <em>clues</em> not shown in <strong>figure 1</strong>.
@@ -159,7 +167,7 @@
 						Is there a gender skew with the apps people use and which send tweets to twitter?
 						Is there a gender skew in the <em>time of day</em> people tweet, or retweet, etc?
 						Does a person's social network (in the <em>graph theory</em> sense of the term) give clue's to their gender?
-						There are many possibilities.)
+						There are many possibilities one can test and build <em>machine learning</em> systems around.)
 					</p>
 				</section>
 
@@ -172,7 +180,7 @@
 						And even with an error, these <em>gender predictions</em> may still be useful.
 					</p>
 					<p>
-						You could even (somehow) combine these different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.
+						<strong>You could even (somehow) combine these different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.</strong>
 					</p>
 				</section>
 
@@ -183,6 +191,9 @@
 						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences between various <em>things</em> that are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
 						And then validate the resulting model against another (separate) set of Twitter accounts for which you know the gender.
 						(Just to verify that your model is a "good" one.)
+					</p>
+					<p>
+						Of course, these "engines" can have all sorts of nuances, special conditions, and may need to be updated from time to time, as past analysis work done may no longer be applicable.
 					</p>
 				</section>
 
@@ -197,7 +208,7 @@
 						I suspect so (at least some of the time, if not a lot of the time).
 					</p>
 					<p>
-						And in fact, a team of 3 (<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>) did <a href="http://arxiv.org/abs/1210.4567">some analysis work</a> to find some differences.
+						And in fact, a team of 3 (<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>) did <a href="http://arxiv.org/abs/1210.4567">some research and analysis work</a> to find some differences.
 					</p>
 				</section>
 			</section>
@@ -208,7 +219,7 @@
 				<p>
 					<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>
 					published the results of their work (open access) <a href="http://arxiv.org/abs/1210.4567">on arXiv</a>.
-					(I encourage you to read it yourself, after read this article.)
+					(I encourage you to read it yourself, after reading this article.)
 					There is also a <a href="http://stanford.edu/%7Etylers/notes/presentations/Twitter_Gender_presentation_10-25-12.pptx">related (powerpoint) presentation</a> available.
 					And for those who want to do a little <em>digging</em> of their own, into their results, they have also made their <a href="http://www.cs.cmu.edu/~dbamman/twitter14K.html">data set</a> avilable.
 				</p>

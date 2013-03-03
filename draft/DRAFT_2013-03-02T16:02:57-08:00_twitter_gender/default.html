@@ -150,6 +150,13 @@
 						Probably not much in the way of clues here.
 						Not unless <em>not giving clues</em> is gender skewed :-)
 					</p>
+					<p>
+						(Note that I'm not trying to list out every possible data source that may be useful for <em>gender prediction</em>.
+						I am only trying to give you a "flavor" of the strategies that could be used.
+						Is there a gender skew with the apps people use and which send tweets to twitter?
+						Is there a gender skew in the <em>time of day</em> people tweet, or retweet, etc?
+						There are many possibilities.)
+					</p>
 				</section>
 
 				<section>
@@ -161,92 +168,48 @@
 						And even with an error, these <em>gender predictions</em> may still be useful.
 					</p>
 					<p>
-						You could even (somehow) combining many different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.
+						You could even (somehow) combine these different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.
 					</p>
 				</section>
 
 				<section>
 					<h3>Analysis</h3>
 					<p>
-						Developing <em>gender prediction</em> "engine" really could be done by just taking a reference data set of known male and female accounts and some analysis work.
-						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences what <em>things</em> are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
+						Developing a <em>gender prediction</em> "engine" really could be done by just taking a reference data set of known male and female accounts and doing some analysis work.
+						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences between various <em>things</em> that are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
 						And then validate the resulting model against another (separate) set of Twitter accounts for which you know the gender.
 						(Just to verify that your model is a "good" one.)
-					</p>
-					<p>
-						Some <em>clues</em> one could use for <em>gender prediction</em>, off the top of my head, are....
-					</p>
-				</section>
-
-				<section>
-					<h3>Names</h3>
-					<p>
-						You could use the (given) name associated with a Twitter account.
-						For example, I suspect a Twitter account with a name of "Charles" is more likely to be a <em>male</em>.
-						Likewise, a twitter account with a name of "Elizabeth" is more likely to be <em>female</em>.
-					</p>
-					<p>
-						There are data sources you could use to associate probabilities to <em>name-gender mappings</em>.
-						(Such a database would likely be on a per-culture basis.)
-					</p>
-				</section>
-
-				<section>
-					<h3>Photos</h3>
-					<p>
-						How may people use their real photos on Twitter?
-						I don't actually know.
-						And I know not everyone does.
-						But you can infer a person's gender from their photo.
-					</p>
-				</section>
-
-				<section>
-					<h3>Screen Names</h3>
-					<p>
-						The screen name a person chooses may be gives us some <em>clues</em> about their gender.
-					</p>
-					<p>
-						Some people Twitter screen names include their real names (including their <em>given name</em>).
-					</p>
-					<p>
-						For example Neuroscientist <a href="http://blog.ketyov.com/">Bradley Voytek</a> has the Twitter handle <a href="http://twitter.com/bradleyvoytek">@bradleyvoytek</a>
-						Paleoanthropologist <a href="http://johnhawks.net/">John Hawks</a> has the Twitter handle <a href="http://twitter.com/johnhawks">@johnhawks</a>.
-						And Neuroscientist <a href="http://thermaltoy.wordpress.com/">Tom Hartley</a> has the Twitter handle <a href="http://twitter.com/tom_hartley">@tom_hartley</a>.
-					</p>
-					<p>
-						One could extract the given names out of that for <em>gender prediction</em>.
-					</p>
-					<p>
-						Of course, not everyone uses their names in the Twitter screen name
-					</p>
-					<p>
-						For example, my Twitter screen name is <a href="http://twitter.com/reiver">@reiver</a>.
-						Pseudonymous blogger Randall Parker's Twitter screen name is <a href="http://twitter.com/futurepundit">@futurepundit</a>.
-						And <a href="http://stevegrand.wordpress.com/">Steve Grand</a>'s Twitter screen name is <a href="http://twitter.com/enchantedloom">@enchantedloom</a>
-					</p>
-					<p>
-						I wouldn't be surprised if there were gender patterns in the screen names people choose, such that you could infer gender, with a degree of accuracy, even with these types of Twitter screen names.
 					</p>
 				</section>
 
 				<section>
 					<h3>Tweets</h3>
 					<p>
+						Another <em>clue</em> I haven't yet mention (because I wanted to save it for last) are a person's tweets.
+						Specifically, the text found in a person's tweet.
+					</p>
+					<p>
 						Are there differences between the way males and females tweet?
 						I suspect so.
 					</p>
 					<p>
-						And in fact, a team of 3 -- David Bamman, Jacob Eisenstein, Tyler Schnoebelen -- did <a href="http://arxiv.org/abs/1210.4567">some work</a> to create a model to do this.
+						And in fact, a team of 3 (<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>) did <a href="http://arxiv.org/abs/1210.4567">some analysis work</a> to find some differences.
 					</p>
 				</section>
 			</section>
 
 
 			<section>
-				<h2>####</h2>
+				<h2>Gender in Twitter: Styles, stances, and social networks</h2>
 				<p>
-					A team of sociolinguists and computer scientists did this kind of analysis work applying it to the contents of people's tweets.
+					<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>
+					published the results of their work (open access) <a href="http://arxiv.org/abs/1210.4567">on arXiv</a>.
+					(I encourage you to read it yourself, after read this article.)
+					There is also a <a href="http://stanford.edu/%7Etylers/notes/presentations/Twitter_Gender_presentation_10-25-12.pptx">related (powerpoint) presentation</a> available.
+					And for those who want to do a little <em>digging</em> of their own, into their results, they have also made their <a href="http://www.cs.cmu.edu/~dbamman/twitter14K.html">data set</a> avilable.
+				</p>
+				<p>
+					So let's look at their results.
 				</p>
 
 				<section>

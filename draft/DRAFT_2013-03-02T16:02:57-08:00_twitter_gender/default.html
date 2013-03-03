@@ -3,7 +3,7 @@
 	<head>
 		<meta name="author" content="reiver" />
 
-		<title>Predicting Gender From Twitter</title>
+		<title>Predicting Gender On Twitter</title>
 
 		<meta name="keywords" content="twitter, gender, sex" />
 
@@ -97,10 +97,13 @@
 						</figcaption>
 					</figure>
 					<p>
+						(Remember, these <em>clues</em> are for a <em>machine learning</em> system to use.
+						Of course a human can do this categorization pretty easily, but we want to automate it.)
+					</p>
+					<p>
 						The first clue is the <em>avatar image</em>.
 						A <em>photo</em> was used.
 						We could use <em>computer vision</em> to infer the gender of that image.
-						(Or even use humans to categorize it, if we had to.)
 					</p>
 					<p>
 						The second clue is the <em>given name</em> ("Richard").
@@ -147,7 +150,7 @@
 						</figcaption>
 					</figure>
 					<p>
-						Probably not much in the way of clues here.
+						Probably not much in the way of clues here, in <strong>figure 2</strong>.
 						Not unless <em>not giving clues</em> is gender skewed :-)
 					</p>
 					<p>
@@ -155,6 +158,7 @@
 						I am only trying to give you a "flavor" of the strategies that could be used.
 						Is there a gender skew with the apps people use and which send tweets to twitter?
 						Is there a gender skew in the <em>time of day</em> people tweet, or retweet, etc?
+						Does a person's social network (in the <em>graph theory</em> sense of the term) give clue's to their gender?
 						There are many possibilities.)
 					</p>
 				</section>
@@ -190,7 +194,7 @@
 					</p>
 					<p>
 						Are there differences between the way males and females tweet?
-						I suspect so.
+						I suspect so (at least some of the time, if not a lot of the time).
 					</p>
 					<p>
 						And in fact, a team of 3 (<a href="http://www.cs.cmu.edu/~dbamman/">David Bamman</a>, <a href="http://www.cc.gatech.edu/~jeisenst/">Jacob Eisenstein</a> and <a href="http://www.stanford.edu/~tylers/">Tyler Schnoebelen</a>) did <a href="http://arxiv.org/abs/1210.4567">some analysis work</a> to find some differences.
@@ -209,15 +213,99 @@
 					And for those who want to do a little <em>digging</em> of their own, into their results, they have also made their <a href="http://www.cs.cmu.edu/~dbamman/twitter14K.html">data set</a> avilable.
 				</p>
 				<p>
-					So let's look at their results.
+					Here is the abstract from their paper:
 				</p>
-
-				<section>
-					<h3>Multiple Types of Males and Females?</h3>
+				<blockquote cite="http://arxiv.org/abs/1210.4567">
 					<p>
-						One thing that is interesting in the paper is that it may #####
+						We present a study of the relationship between gender, linguistic style, and social networks, using a novel corpus of 14,000 users of Twitter. Prior quantitative work on gender often treats this social variable as a binary; we argue for a more nuanced approach. By clustering Twitter feeds, we find a range of styles and interests that reflects the multifaceted interaction between gender and language. Some styles mirror the aggregated language-gender statistics, while others contradict them. Next, we investigate individuals whose language better matches the other gender. We find that such individuals have social networks that include significantly more individuals from the other gender, and that in general, social network homophily is correlated with the use of same-gender language markers. Pairing computational methods and social theory thus offers a new perspective on how gender emerges as individuals position themselves relative to audiences, topics, and mainstream gender norms. 
 					</p>
-				</section>
+				</blockquote>
+				<p>
+					(<a href="http://arxiv.org/abs/1210.4567">Link</a>)
+				</p>
+				<p>
+					So let's looks at the paper.
+				</p>
+				<p>
+					The mentioned some prior work:
+				</p>
+				<blockquote cite="http://arxiv.org/abs/1210.4567">
+					<p>
+						<abbr title="Herring, Susan C. &amp; Paolillo, John. (2006). Gender and genre variation in weblogs. Journal of Sociolinguistics 10(4):439–459.">Herring and Paolillo 2006</abbr> attempted to apply the informational/involvement word class features identified by <abbr title="Argamon, Shlomo, Koppel, Moshe, Fine, Jonathan &amp; Shimoni, Anat Rachel. (2003). Gender, genre, and writing style in formal written texts. Text 23(3): 321-346.">Argamon et al. 2003</abbr> to a corpus of blog data.
+						After controlling for the genre of the blog, they found no significant gender differences in the frequency of the word classes, though they did find gender differences in the selection of genres: women wrote more "diary" blogs and men wrote more "filter" blogs that link to content from elsewhere in the web.
+						Moreover, the genres themselves did show a significant association with the gender - based features: the "diary" genre included more features thought to be predictive of women, and vice versa.
+						But within each genre, male and female language use was not distinguishable according to the informational/involvement feature set proposed by <abbr title="Argamon, Shlomo, Koppel, Moshe, Fine, Jonathan &amp; Shimoni, Anat Rachel. (2003). Gender, genre, and writing style in formal written texts. Text 23(3): 321-346.">Argamon et al. 2003</abbr>.
+
+					</p>
+					<p>
+						[...]
+					</p>
+					<p>
+						<abbr title="Argamon, Shlomo, Koppel, Moshe, Pennebaker, James & Schler, Jonathan. (2007). Mining the blogosphere: Age, gender, and the varieties of self-expression. First Monday 12(9).">Argamon, Koppel, Pennebaker, &amp; Schler 2007</abbr> assemble 19,320 English blogs (681,288 posts, 140 million words); they build a predictive model of gender from the 1,000 words with the highest information gain, obtaining accuracy of 80.5%.
+						For post hoc analysis, they apply two word categorizations: parts-of-speech (finding that men use more determiners and prepositions, while women use more personal pronouns, auxiliary verbs, and conjunctions) and an automatic categorization based on factor analysis.
+						Some of the factors are content - based (politics and religion), while others are more stylistic.
+						In general, the content - based factors are used more often by men, and the stylistic factors are used more by women -- including a factor centered on swear words.
+					</p>
+				</blockquote>
+				<p>
+					Not directly Twitter related, but interesting.
+				</p>
+				<blockquote cite="http://arxiv.org/abs/1210.4567">
+					<p>
+						<abbr title="Rao, Delip, Yarowsky, David, Shreevats, Abhishek & Gupta, Manaswi. (2010). Classifying latent user attributes in Twitter. Proceedings of the 2nd international Workshop on Search and Mining User-Generated Contents. 37-44.">Rao et al. 2010</abbr> assembled a dataset of microblog posts by 1,000 people on the Twitter social media platform.
+						They then built a predictive model that combined several million n-gram features with more traditional word and phrase classes.
+						Their best model obtains an accuracy of 72.3%, slightly outperforming a model that used only the word class features.
+						Post hoc analysis revealed that female authors were more likely to use emoticons, ellipses (...), expressive lengthening (<i>nooo waaay</i>), repeated exclamation marks, puzzled punctuation (combinations of <i>?</i> and <i>!</i>), the abbreviation <i>omg</i>, and transcriptions of backchannels like <i>ah</i>, <i>hmm</i>, <i>ugh</i>, and <i>grr</i>.
+						The only words that they reported strongly attaching to males were affirmations like <i>yeah</i> and <i>yea</i>.
+						However, a crucial side note to these results is that the author pool was obtained by finding individuals with social network connections to unambiguously gendered entities: sororities, fraternities, and hygiene products.
+						Assumptions about gender were thus built directly into the data acquisition methodology, which is destined to focus on individuals with very specific types of gendered identities.
+					</p>
+					<p>
+						<abbr title="Burger, John D., Henderson, John, Kim, George & Zarrella, Guido. (2011). Discriminating gender on Twitter. In Proceedings of the Conference on Empirical Methods in Natural Language Processing. 1301-1309.">Burger, Henderson, Kim, &amp; Zarrella 2011</abbr> applied a different approach to build a corpus with gender metadata, by following links to Twitter from blogs in which gender was explicitly indicated in the profile (they also performed some manual quality assurance by reading the associated Twitter profiles).
+						Analyzing more than 4 million tweets from 184,000 authors in many different languages (66.7% English), they obtained a predictive accuracy of 75.5% when using multiple tweets from each author, and 67.8% by using a single message per author.
+						Remarkably, both of these were higher than the accuracy of human raters, who predicted gender at an accuracy of 65.7% from individual messages.
+						The post hoc analysis yielded results that were broadly similar to those of <abbr title="Rao, Delip, Yarowsky, David, Shreevats, Abhishek & Gupta, Manaswi. (2010). Classifying latent user attributes in Twitter. Proceedings of the 2nd international Workshop on Search and Mining User-Generated Contents. 37-44.">Rao et al.</abbr>:
+						emoticons and expressive words like <i>aha</i>, <i>ooo</i>, <i>haha</i>, <i>ay!</i> were correlated with female authors, and there were few words correlated with males.
+						The character sequences <i>ht</i>, <i>http</i>, <i>htt</i>, <i>Googl</i>, and <i>Goog</i> were among the most prominent male-associated features.
+					</p>
+					<p>
+						[...]
+					</p>
+					<p>
+						From the accuracy of these predictive models, it is indisputable that there is a strong relationship between language and gender, and that this relationship is detectable at the level of individual words and n-grams.
+					</p>
+				</blockquote>
+				<p>
+					And for their work:
+				</p>
+				<blockquote cite="http://arxiv.org/abs/1210.4567">
+					<p>
+						By clustering the authors in our dataset, we identify a range of different styles and topical interests.
+						Many of these clusters have strong gender orientations, but their use of linguistic resources sometimes directly conflicts with theaggregated language-gender statistics.
+						We find that linguistic tendencies that have previously been attributed to women or men as undifferentiated social groups often describe only a subset of individuals; there are strongly gendered styles that use language resources in ways that are odds with the overall aggregated statistics. 
+					</p>
+				</blockquote>
+				<p>
+					Not surprising.
+					Language usage is a predictor, but not prefect.
+					There is error in the prediction.
+				</p>
+				<blockquote cite="http://arxiv.org/abs/1210.4567">
+					<p>
+						[W]e build a classifier capable of determining the gender of microblog authors from their writing style, with an accuracy of 88%.
+						We focus on the individuals that the classifier gets wrong, and examine their language in the context of their online social networks.
+						We find a significant correlation between the use of mainstream gendered language — as represented by classifier confidence — and social network gender homophily (how much a social network is made up of same - sex individuals).
+						Individuals whose gender is classified incorrectly have social networks that are much less homophilous than those of the individuals that the classifier gets right.
+						While the average social network in our corpus displays significant homophily (63% of connections are same - gender), social network features provide no marginal improvement in the classifier performance.
+						That is, social network gender homophily and the use of mainstream gendered linguistic features are closely linked, even after controlling for author gender
+					</p>
+				</blockquote>
+				<p>
+					So, they build a <em>gender prediction</em> engine and then
+					they ran a Twitter data set for which they already knew the gender for each account.
+					Once they did that they noted the accounts which their <em>gender prediction</em> engine was wrong.
+					<strong>They then looked closer at those accounts which the <em>gender prediction</em> engine was wrong.</strong>
+				</p>
 			</section>
 
 

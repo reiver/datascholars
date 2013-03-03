@@ -11,19 +11,260 @@
 	</head>
 	<body>
 			<p>
-					<a href="http://twitter.com">Twitter</a> is a popular social network, that makes it easy to sign up.
-					All a person has to provide to give to sign up is a <em>name</em> and <em>e-mail address</em>.
+				Can you use <em>machine learning</em> and <em>statistics</em> to predict the gender of someone on Twitter?
+			</p>
+
+			<section>
+				<h2>Male or Female?</h2>
+				<p>
+					If you have spent any kind of time online, then you have probably heard of the various (online) <em>social networks</em> out there.
+					Things such as <em>Facebook</em>, <em>Orkut</em>, <em>VK</em> (popular in Russia), <em>Mixi</em> (popular in Japan) and <em>Twitter</em>.
+				</p>
+				<p>
+					Many of these social network require you to tell them whether you are a <em>male</em> or <em>female</em>.
+					(To some, this information is invaluable.)
+				</p>
+				<p>
+					However, Twitter doesn't
+				</p>
+			</section>
+
+			<section>
+				<h2>Twitter</h2>
+				<p>
+					<img src="bird_blue_48.png" style="float:right;" />
+					Twitter in particular, is an interesting social network.
+					Both from the point of view of someone using it.
+					And from the point of view of someone doing research.
+				</p>
+				<p>
+					<a href="http://twitter.com">Twitter</a> has made it easy for people to sign up.
+					Some websites want to know all your (deepest darkest) details before they let you sign up.
+					Twitter doesn't.
+					All a person has to provide to Twitter to sign up is a <em>name</em> and <em>e-mail address</em>.
+					That's it.
+				</p>
+				<figure>
+					<img src="twitter-signup.png" />
+					<figcaption>Twitter's signup form</figcaption>
+				</figure>
+				<p>
+					(You don't have to tell Twitter <em>where you live</em> or you <em>date of birth</em> or <em>gender</em>, etc.)
+				</p>
+				<p>
 					And really, the <em>name</em> doesn't even have to be real.
-					Pseudonyms and any other name you want to use are just fine.
-					(This is one of the strengths of Twitter in my opiion.)
-			</p>
-			<figure>
-				<img src="twitter-signup.png" />
-				<figcaption>Twitter's signup form</figcaption>
-			</figure>
-			<p>
-				If you look at the signup forms for other sites, they ask you for
-			</p>
+					Using a pseudonyms or any other name you want to use is just fine.
+					If you want your name on Twitter to be "Panda Puncher", go right ahead.
+				</p>
+				<p>
+					(This is one of the strengths of Twitter in my opinion.)
+				</p>
+			</section>
+
+
+			<section>
+				<h2>Inferring Gender</h2>
+
+				<p>
+					Even though Twitter doesn't ask for your <em>gender</em>, doesn't mean no one cares about it.
+				</p>
+				<p>
+					(People involving in <em>advertising</em> care about it a lot, for instance. And so do people involved with <em>identity</em>.)
+				</p>
+				<p>
+					But if someone doesn't self-assert their <em>gender</em> (to say they are <em>male</em> or <em>female</em>), <strong>can we infer someone's gender from their Twitter account?</strong>
+				</p>
+				<p>
+					I'd says the answer is "yes".
+					(Probably because I've already worked on commercial projects that did <em>gender prediction</em> with similar type of data :-) )
+				</p>
+				<p>
+					I think you can infer someone's gender without them <em>telling you</em> what it is, based on <em>clues</em> they leave around, with varying degrees of certainty.
+					I can even think of different ways of doing it.
+				</p>
+
+				<section>
+					<h3>Examples</h3>
+
+					<p>
+						For example, consider the profile of a friend of mine of Twitter, in the following figure:
+					</p>
+					<figure>
+						<img src="harpersnotes-clues.png" />
+						<figcaption>
+							<strong>Figure 1.</strong>
+							Twitter profile of <a href="http://twitter.com/harpersnotes">@harpersnotes</a> with 3 clues useful for <em>gender predication</em> marked in red.
+						</figcaption>
+					</figure>
+					<p>
+						The first clue is the <em>avatar image</em>.
+						A <em>photo</em> was used.
+						We could use <em>computer vision</em> to infer the gender of that image.
+						(Or even use humans to categorize it, if we had to.)
+					</p>
+					<p>
+						The second clue is the <em>given name</em> ("Richard").
+						Many <em>given names</em> are highly gender skewed.
+						(I suspect there probably <strong>a lot</strong> more males with the name "Richard" than there are females.
+						Which would probably make it a "good" <em>gender predictor</em>.)
+					</p>
+					<p>
+						The third clue probably seems less obvious, but the Twitter profile <em>description</em> can also give a clue to the gender.
+						It could be that males and females use language differently, and that the language used in the <em>description</em> is a <em>gender predictor</em>.
+					</p>
+					<p>
+						There is actually a fouth clue not marked in the <strong>figure 1</strong>.
+						The Twitter screen name ("@harpersnotes").
+						Like the third clue, it could be that males and females use language differently.
+						And thus the words used the Twitter screen name could be a <em>gender predictor</em>.
+					</p>
+					<p>
+						Also, as a possible fifth clue also not shown in <strong>figure 1</strong>, it is conceivable that the location could be a <em>gender predictor</em>.
+						Perhaps not the location ("Albuquerque, New Mexico, USA ") in <strong>figure 1</strong>,
+						but say if the location is somewhere where there is a strong gender skew, like India or China, or even like a remote mining town in Northern Canada where the only people living there are workers, and all the miners are males.
+					</p>
+					<p>
+						(And Twitter does offer us other <em>clues</em> not shown in <strong>figure 1</strong>.
+						Perhaps the Twitter user ID gives us a <em>clue</em>.
+						For example, if more males signed up for Twitter in the first 3 years that Twitter existed, and we know that Twitter user IDs with a range between certain numbers are from that era,
+						then we can predict <em>male</em> for all users with Twitter user IDs we think are from that era, and predict nothing outside of that.)
+					</p>
+					<p>
+						Now obviously, in general, some of these <em>clues</em> are going to be better <em>gender predictors</em> than others.
+						(Perhaps the <em>given name</em> is a better <em>gender predictor</em> than the <em>avatar image</em> because many people don't use photos for their <em>avatar image</em>.)
+					</p>
+					<p>
+						And for specific profiles, which is <em>gender predictor</em> is accurate will vary; but we expect trends.
+					</p>
+					<p>
+						Here's an example of another friend whose profile really gives us no clues, or barely any, as seen in the following figure:
+					</p>
+					<figure>
+						<img src="rnadomtc-clues.png" />
+						<figcaption>
+							<strong>Figure 2.</strong>
+							Twitter profile of <a href="http://twitter.com/rNadomtC">@rNadomtC</a>.
+						</figcaption>
+					</figure>
+					<p>
+						Probably not much in the way of clues here.
+						Not unless <em>not giving clues</em> is gender skewed :-)
+					</p>
+				</section>
+
+				<section>
+					<h3>Accuracy</h3>
+					<p>
+						Now, this doesn't mean a single <em>gender prediction</em> strategy will always be 100% accurate.
+						(There is very likely going to be some level of error.)
+						But these strategies will have some level of accuracy.
+						And even with an error, these <em>gender predictions</em> may still be useful.
+					</p>
+					<p>
+						You could even (somehow) combining many different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.
+					</p>
+				</section>
+
+				<section>
+					<h3>Analysis</h3>
+					<p>
+						Developing <em>gender prediction</em> "engine" really could be done by just taking a reference data set of known male and female accounts and some analysis work.
+						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences what <em>things</em> are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
+						And then validate the resulting model against another (separate) set of Twitter accounts for which you know the gender.
+						(Just to verify that your model is a "good" one.)
+					</p>
+					<p>
+						Some <em>clues</em> one could use for <em>gender prediction</em>, off the top of my head, are....
+					</p>
+				</section>
+
+				<section>
+					<h3>Names</h3>
+					<p>
+						You could use the (given) name associated with a Twitter account.
+						For example, I suspect a Twitter account with a name of "Charles" is more likely to be a <em>male</em>.
+						Likewise, a twitter account with a name of "Elizabeth" is more likely to be <em>female</em>.
+					</p>
+					<p>
+						There are data sources you could use to associate probabilities to <em>name-gender mappings</em>.
+						(Such a database would likely be on a per-culture basis.)
+					</p>
+				</section>
+
+				<section>
+					<h3>Photos</h3>
+					<p>
+						How may people use their real photos on Twitter?
+						I don't actually know.
+						And I know not everyone does.
+						But you can infer a person's gender from their photo.
+					</p>
+				</section>
+
+				<section>
+					<h3>Screen Names</h3>
+					<p>
+						The screen name a person chooses may be gives us some <em>clues</em> about their gender.
+					</p>
+					<p>
+						Some people Twitter screen names include their real names (including their <em>given name</em>).
+					</p>
+					<p>
+						For example Neuroscientist <a href="http://blog.ketyov.com/">Bradley Voytek</a> has the Twitter handle <a href="http://twitter.com/bradleyvoytek">@bradleyvoytek</a>
+						Paleoanthropologist <a href="http://johnhawks.net/">John Hawks</a> has the Twitter handle <a href="http://twitter.com/johnhawks">@johnhawks</a>.
+						And Neuroscientist <a href="http://thermaltoy.wordpress.com/">Tom Hartley</a> has the Twitter handle <a href="http://twitter.com/tom_hartley">@tom_hartley</a>.
+					</p>
+					<p>
+						One could extract the given names out of that for <em>gender prediction</em>.
+					</p>
+					<p>
+						Of course, not everyone uses their names in the Twitter screen name
+					</p>
+					<p>
+						For example, my Twitter screen name is <a href="http://twitter.com/reiver">@reiver</a>.
+						Pseudonymous blogger Randall Parker's Twitter screen name is <a href="http://twitter.com/futurepundit">@futurepundit</a>.
+						And <a href="http://stevegrand.wordpress.com/">Steve Grand</a>'s Twitter screen name is <a href="http://twitter.com/enchantedloom">@enchantedloom</a>
+					</p>
+					<p>
+						I wouldn't be surprised if there were gender patterns in the screen names people choose, such that you could infer gender, with a degree of accuracy, even with these types of Twitter screen names.
+					</p>
+				</section>
+
+				<section>
+					<h3>Tweets</h3>
+					<p>
+						Are there differences between the way males and females tweet?
+						I suspect so.
+					</p>
+					<p>
+						And in fact, a team of 3 -- David Bamman, Jacob Eisenstein, Tyler Schnoebelen -- did <a href="http://arxiv.org/abs/1210.4567">some work</a> to create a model to do this.
+					</p>
+				</section>
+			</section>
+
+
+			<section>
+				<h2>####</h2>
+				<p>
+					A team of sociolinguists and computer scientists did this kind of analysis work applying it to the contents of people's tweets.
+				</p>
+
+				<section>
+					<h3>Multiple Types of Males and Females?</h3>
+					<p>
+						One thing that is interesting in the paper is that it may #####
+					</p>
+				</section>
+			</section>
+
+
+
+			<section>
+				<h1>Citation</h1>
+				<p>
+					<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft_id=info%3Aarxiv%2F1210.4567v1&rft.atitle=Gender+in+Twitter%3A+Styles%2C+stances%2C+and+social+networks&rft.date=2012&rfr_id=info%3Asid%2Fscienceseeker.org&rft.au=David+Bamman&rft.au=Jacob+Eisenstein&rft.au=Tyler+Schnoebelen&rfs_dat=ss.included=1&rfe_dat=bpr3.included=1;bpr3.tags=Computer+Science+%2F+Engineering">David Bamman, Jacob Eisenstein & Tyler Schnoebelen (2012). Gender in Twitter: Styles, stances, and social networks, <span style="font-style:italic;"> </span>   arXiv: <a rel="author" href="http://arxiv.org/abs/1210.4567v1">1210.4567v1</a></span>
+				</p>
+			</section>
 	</body>
 </html>
 

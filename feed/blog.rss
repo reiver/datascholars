@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom" 
+>
+	<channel>
+		<title>DataScholars</title>
+		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
+		<lastBuildDate>Sat, 02 Mar 2013 12:11:09 -0800</lastBuildDate>
+		<link>http://datascholars.com/</link>
+		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
+
+	</channel>
+</rss>

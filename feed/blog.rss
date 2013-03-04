@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 03 Mar 2013 17:38:17 -0800</lastBuildDate>
+		<lastBuildDate>Mon, 04 Mar 2013 07:41:15 -0800</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>We Love Open Data: Vancouver Open Data</title>
+			<link>http://datascholars.com/post/2013/03/04/vancouver_open_data/</link>
+			<pubDate>Mon, 04 Mar 2013 07:41:15 -0800</pubDate>
+		</item>
 		<item>
 			<title>Predicting Gender On Twitter</title>
 			<link>http://datascholars.com/post/2013/03/03/twitter_gender/</link>

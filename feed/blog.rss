@@ -10,5 +10,18 @@
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
+
+
+		<item>
+			<title>Gender as a Fraud Predictor</title>
+			<link>http://datascholars.com/post/2013/03/02/gender_as_a_fraud_predictor/</link>
+			<pubDate>Sat, 02 Mar 2013 12:11:09 -0800</pubDate>
+		</item>
+		<item>
+			<title>Hello World!</title>
+			<link>http://datascholars.com/post/2013/02/14/hello_world/</link>
+			<pubDate>Thu, 14 Feb 2013 21:41:21 -0800</pubDate>
+		</item>
+
 	</channel>
 </rss>

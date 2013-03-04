@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Predicting Gender On Twitter</title>
+
+		<link rel="stylesheet" href="../../../../../3/normalize/normalize.css" />
+		<link rel="stylesheet" href="../../../../../screen.css" />
+		<link rel="alternate" href="/feed/blog.rss" title="DataScholars" type="application/rss+xml" />
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="http://datascholars.com/">DataScholars</a></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="../../../../../about.html">About</a>
+					</li>
+					<li>
+						<a href="../../../../../subscribe.html">Subscribe</a>
+					</li>
+					<li>
+						<a href="../../../../../sphere.html">Sphere</a>
+					</li>
+				</ul>
+			</nav>
+			<p class="blurb">
+				A blog about
+				<em>data science</em>,
+				<em>computer science</em>,
+				<em>machine learning</em>,
+				<em>artificial intelligence</em>,
+				<em>data mining</em>,
+				<em>analysis</em>,
+				and
+				<em>visualization</em>.
+			</p>
+		</header>
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-03T17:38:17-08:00">March 3, 2013</time>
+			</div>
+			<h1>Predicting Gender On Twitter</h1>
+			<address>
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+				Can you use <em>machine learning</em> and <em>statistics</em> to predict the gender of someone on Twitter?
+			</p>
+
+			<section>
+				<h2>Male or Female?</h2>
+				<p>
+					If you have spent any kind of time online, then you have probably heard of the various (online) <em>social networks</em> out there.
+					Things such as <em>Facebook</em>, <em>Orkut</em>, <em>VK</em> (popular in Russia), <em>Mixi</em> (popular in Japan) and <em>Twitter</em>.
+				</p>
+				<p>
+					Many of these social network require you to tell them whether you are a <em>male</em> or <em>female</em>.
+					(To some, this information is invaluable.)
+				</p>
+				<p>
+					However, Twitter doesn't
+				</p>
+			</section>
+
+			<section>
+				<h2>Twitter</h2>
+				<p>
+					Twitter in particular, is an interesting social network.
+					Both from the point of view of someone using it.
+					And from the point of view of someone doing research.
+				</p>
+				<p>
+					<a href="http://twitter.com">Twitter</a> has made it easy for people to sign up.
+					Some websites want to know all your (deepest darkest) details before they let you sign up.
+					Twitter doesn't.
+					All a person has to provide to Twitter to sign up is a <em>name</em> and <em>e-mail address</em>.
+					That's it.
+				</p>
+				<figure>
+					<img src="../../../../../data/post/2013/03/03/twitter_gender/twitter-signup.png"/>
+					<figcaption>
+						<strong>Figure 1.</strong>
+						Twitter's signup form
+					</figcaption>
+				</figure>
+				<p>
+					(You don't have to tell Twitter <em>where you live</em> or your <em>date of birth</em> or <em>gender</em>, etc.)
+				</p>
+				<p>
+					And really, the <em>name</em> doesn't even have to be real.
+					Using a pseudonym or any other name you want to use is just fine.
+					If you want your name on Twitter to be "Panda Puncher", go right ahead.
+				</p>
+				<p>
+					(This is one of the strengths and attractions of Twitter in my opinion.)
+				</p>
+			</section>
+
+
+			<section>
+				<h2>Inferring Gender</h2>
+
+				<p>
+					Even though Twitter doesn't ask for your <em>gender</em>, doesn't mean no one cares about it.
+				</p>
+				<p>
+					(People involving in <em>advertising</em> care about it a lot. People involved with <em>identity</em>. People involved in fraud detection care too.)
+				</p>
+				<p>
+					But if someone doesn't self-assert their <em>gender</em> (to say they are <em>male</em> or <em>female</em>), <strong>can we infer someone's gender from their Twitter account?</strong>
+				</p>
+				<p>
+					I'd say the answer is "yes".
+					(Probably because I've already worked on commercial projects that did <em>gender prediction</em> with similar types of data :-) )
+				</p>
+				<p>
+					I think you can infer someone's gender without them <em>telling you</em> what it is, based on <em>clues</em> they leave around, with varying degrees of success.
+				</p>
+				<p><strong>
+					Consider, for example, a population that is 50% male and 50% female.
+					If you guessed "<em>male</em>" every single time, then (with a random sample) your <em>gender prediction</em> would be accurate 50% of the time.
+					This is kind of like the idiom: <em>a stopped clock is right twice a day</em>.
+				</strong></p>
+				<p>
+					Any <em>gender prediction</em> engine we consider "good" should do better than this.
+					And I can even think of different ways that may work.
+				</p>
+
+				<section>
+					<h3>Examples</h3>
+
+					<p>
+						For example, consider the profile of a friend of mine of Twitter, in <strong>figure 2</strong>.
+					</p>
+					<figure>
+						<img src="../../../../../data/post/2013/03/03/twitter_gender/harpersnotes-clues.png"/>
+						<figcaption>
+							<strong>Figure 2.</strong>
+							Twitter profile of <a href="http://twitter.com/harpersnotes">@harpersnotes</a> with 3 clues useful for <em>gender predication</em> marked in red.
+						</figcaption>
+					</figure>
+					<p>
+						(Remember, these <em>clues</em> are for a <em>machine learning</em> system to use.
+						Of course a human can do this categorization pretty easily, but we want to automate it.)
+					</p>
+					<p>
+						The first clue is the <em>avatar image</em>.
+						A <em>photo</em> was used.
+						We could use <em>computer vision</em> to infer the gender of that image.
+					</p>
+					<p>
+						The second clue is the <em>given name</em> ("Richard").
+						Many <em>given names</em> are highly gender skewed.
+						(I suspect there are probably <strong>a lot</strong> more males with the name "Richard" than there are females.
+						Which would probably make it a "good" <em>gender predictor</em>.)
+					</p>
+					<p>
+						The third clue probably seems less obvious, but the Twitter profile <em>description</em> can also give a clue to the gender.
+						It could be that males and females use language differently, and that the language used in the <em>description</em> is a <em>gender predictor</em>.
+					</p>
+					<p>
+						There is actually a fourth clue not marked in the <strong>figure 2</strong>.
+						The Twitter <em>screen name</em> ("@harpersnotes").
+						Like the third clue, it could be that males and females use language differently for the Twitter screen name too.
+						And thus the words used the Twitter screen name could be a <em>gender predictor</em>.
+					</p>
+					<p>
+						Also, if the Twitter <em>screen name</em> contains a person's <em>given name</em> (ex: <a href="http://twitter.com/tom_hartley">@tom_hartley</a>, <a href="http://twitter.com/bradleyvoytek">@bradleyvoytek</a> and <a href="https://twitter.com/JonathanLWai">@JonathanLWai</a>),
+						then that may be able to be used as a "good" <em>gender predictor</em> as well.
+					</p>
+					<p>
+						As a possible fifth clue also not shown in <strong>figure 2</strong>, it is conceivable that the location could be a <em>gender predictor</em>.
+						Perhaps not the location in <strong>figure 2</strong> ("Albuquerque, New Mexico, USA "),
+						but say if the location is somewhere where there is a strong gender skew, such as India or China, or even a remote mining town in Northern Canada where the only people living there are mining workers, and all the miners are males.
+					</p>
+					<p>
+						(And Twitter does offer us other <em>clues</em> not shown in <strong>figure 2</strong>.
+						Perhaps the Twitter user ID gives us a <em>clue</em>.
+						For example, if more males signed up for Twitter in the first 3 years that Twitter existed, and we know that Twitter user IDs with a range between certain numbers are from that era,
+						then we can predict <em>male</em> for all users with Twitter user IDs we think are from that era, and predict nothing outside of that.)
+					</p>
+					<p>
+						Now obviously, in general, some of these <em>clues</em> are going to be better <em>gender predictors</em> than others.
+						(Perhaps the <em>given name</em> is a better <em>gender predictor</em> than the <em>avatar image</em> because many people don't use photos for their <em>avatar image</em>.)
+					</p>
+					<p>
+						And for specific profiles, which is <em>gender predictor</em> is accurate will vary; but we expect trends.
+					</p>
+					<p>
+						Here's an example of another friend whose profile really gives us no clues, or barely any, as seen in <strong>figure 3</strong>:
+					</p>
+					<figure>
+						<img src="../../../../../data/post/2013/03/03/twitter_gender/rnadomtc-clues.png"/>
+						<figcaption>
+							<strong>Figure 3.</strong>
+							Twitter profile of <a href="http://twitter.com/rNadomtC">@rNadomtC</a>.
+						</figcaption>
+					</figure>
+					<p>
+						Probably not much in the way of clues here, in <strong>figure 3</strong>.
+						Not unless <em>not giving clues</em> is gender skewed :-)
+					</p>
+					<p>
+						(Note that I'm not trying to list out every possible data source that may be useful for <em>gender prediction</em>.
+						I am only trying to give you a "flavor" of the strategies that could be used.
+						Is there a gender skew with the apps people use and which send tweets to twitter?
+						Is there a gender skew in the <em>time of day</em> people tweet, or retweet, etc?
+						Does a person's social network graph (in the <em>graph theory</em> sense of the term) give clues to their gender?
+						There are many possibilities one can test and build <em>machine learning</em> systems around.)
+					</p>
+				</section>
+
+				<section>
+					<h3>Accuracy</h3>
+					<p>
+						Now, this doesn't mean a single <em>gender prediction</em> strategy will always be 100% accurate.
+						(There is very likely going to be some level of error.)
+						But these strategies will have some level of accuracy.
+						And even with an error, these <em>gender predictions</em> may still be useful.
+					</p>
+					<p>
+						<strong>You could even (somehow) combine these different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.</strong>
+					</p>
+				</section>
+
+				<section>
+					<h3>Analysis</h3>
+					<p>
+						Developing a <em>gender prediction</em> "engine" really could be done by just taking a reference data set of known male and female accounts and doing some analysis work.
+						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences between various <em>things</em> that are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
+						And then validate the resulting model against another (separate) set of Twitter accounts for which you know the gender.
+						(Just to verify that your model is a "good" one.)
+					</p>
+					<p>
+						Of course, these "engines" can have all sorts of nuances, special conditions, and may need to be updated from time to time, as past analysis work done may no longer be applicable.
+					</p>
+				</section>
+
+				<section>
+					<h3>Tweets</h3>
+					<p>
+						Another <em>clue</em> I have yet to mention (because I wanted to save it for last) are a person's tweets.
+						Specifically, the text found in a person's tweet.
+					</p>
+					<p>
+						Are there differences between the way males and females tweet?
+						I suspect so (at least some of the time, if not a lot of the time).
+					</p>
+					<p>
+						A lot more can be said about this.
+					</p>
+				</section>
+			</section>
+
+	
+
+<address class="vcard" itemscope="true" itemtype="http://schema.org/Person">
+	-- <a rel="author" class="fn n url" itemprop="name url" href="http://changelog.ca/"><span class="given-name" itemprop="givenName">Charles</span> <span class="additional-name" itemprop="additionalName">Iliya</span> <span class="family-name" itemprop="familyName">Krempeaux</span></a>
+</address>
+
+
+			</div>
+			<div class="comments">
+
+    <div id="disqus_thread"></div>
+    	<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'datascholars'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+			</div>
+		</article>
+
+
+		<footer>
+			<a href="http://twitter.com/DataScholars"><img src="../../../../../i/twitter.png" alit="twitter"></a>
+		</footer>
+
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'datascholars'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+
+	</body>
+</html>

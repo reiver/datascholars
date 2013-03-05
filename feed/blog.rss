@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 04 Mar 2013 07:41:15 -0800</lastBuildDate>
+		<lastBuildDate>Tue, 05 Mar 2013 07:11:11 -0800</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Brendan O'Connor: How to Get Started with Text Analysis</title>
+			<link>http://datascholars.com/post/2013/03/05/text_analysis/</link>
+			<pubDate>Tue, 05 Mar 2013 07:11:11 -0800</pubDate>
+		</item>
 		<item>
 			<title>Data Science Talk in Vancouver (March 2013)</title>
 			<link>http://datascholars.com/post/2013/03/04/vancouver_data_science_talk/</link>

@@ -12,6 +12,12 @@
 		<link rel="stylesheet" href="../../../../../3/normalize/normalize.css" />
 		<link rel="stylesheet" href="../../../../../screen.css" />
 		<link rel="alternate" href="/feed/blog.rss" title="DataScholars" type="application/rss+xml" />
+
+<?php if(isset($tmplData['original_href'])): ?>
+		<link rel="canonical" href="<?php echo htmlspecialchars($tmplData['original_href']) ?>" />
+		<link rel="bookmark"  href="<?php echo htmlspecialchars($tmplData['original_href']) ?>" />
+<?php endif; ?>
+
 	</head>
 
 	<body>
@@ -48,7 +54,14 @@
 				<time datetime="<?php echo htmlspecialchars($tmplData['pubdate']) ?>"><?php echo htmlspecialchars(date('F n, Y', strtotime($tmplData['pubdate']))) ?></time>
 			</div>
 			<h1><?php echo htmlspecialchars($tmplData['title']) ?></h1>
-			<address>
+			<address
+				<?php if(isset($tmplData['original_href'])): ?> 
+					class="reblogged"
+				<?php endif; ?> 
+			>
+				<?php if(isset($tmplData['original_href'])): ?> 
+					<a rel="bookmark canonical" href="<?php echo htmlspecialchars($tmplData['original_href']) ?>">cross-blogged</a>
+				<?php endif; ?> 
 				by <a href="<?php echo htmlspecialchars($tmplData['author_href']) ?>"><?php echo htmlspecialchars($tmplData['author_username']) ?></a>
 			</address>
 			<div>

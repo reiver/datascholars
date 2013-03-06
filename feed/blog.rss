@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 05 Mar 2013 07:11:11 -0800</lastBuildDate>
+		<lastBuildDate>Wed, 06 Mar 2013 07:39:04 -08:00</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Social Resilience in Online Communities: The Autopsy of Friendster (David Garcia, Pavlin Mavrodiev, Frank Schweitzer)</title>
+			<link>http://datascholars.com/post/2013/03/06/social_resilience_in_online_communities/</link>
+			<pubDate>Wed, 06 Mar 2013 07:39:04 -08:00</pubDate>
+		</item>
 		<item>
 			<title>Brendan O'Connor: How to Get Started with Text Analysis</title>
 			<link>http://datascholars.com/post/2013/03/05/text_analysis/</link>

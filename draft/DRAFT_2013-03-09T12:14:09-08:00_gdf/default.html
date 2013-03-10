@@ -350,6 +350,28 @@ d,e,200
 					One thing to keep in mind though: make sure to start the node names with a letter.
 					(Else, put the node name into a quoted string.)
 				</p>
+				<p>
+					And <abbr title="by the way">BTW</abbr>. this is what my generated GDF files tend to look like (although usually much much larger):
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+n11157,"James Wilson"
+n12008,"Fred Olson"
+n12009,"John Williams"
+n12407,"Natalie McDonald"
+n14773,"Gwen Nelson"
+edgedef> node1,node2,weight
+n11157,n12008
+n12008,n12009
+n12008,n12407
+n12407,n14773
+</code></pre>
+					<figcaption>
+						<strong>Figure 11.</strong>
+						An example GDF file, with <em>weights</em> on the nodes.
+					</figcaption>
+				</figure>
 			</section>
 	</body>
 </html>

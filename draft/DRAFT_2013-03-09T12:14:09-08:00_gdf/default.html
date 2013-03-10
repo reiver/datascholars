@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="reiver" />
+
+		<title>GDF: A CSV Like Format For Graphs</title>
+
+		<meta name="keywords" content="graph theory, csv, gdf" />
+
+		<meta name="DC.Date.Created" content="2013-03-09T12:14:09-08:00" />
+
+		<link rel="canonical" href="http://changelog.ca/log/2013/03/09/gdf" />
+	</head>
+	<body>
+			<p>
+					Sometimes the data you are dealing with is a <em>graph</em>.
+			</p>
+			<p>
+					Before you even start considering how you will view your graph data
+					(such as by using <a href="http://gephi.org/">Gephi</a> or <a href="http://graphexploration.cond.org/">Guess</a>, etc)
+					you need to (serialize and) store you graph into some kind of <em>file format</em>.
+			</p>
+			<p>
+					If we were dealing with tabular data (instead of graph data) we would probably use a <abbr title="comma separated values">CSV</abbr> file, if we wanted to keep things simple.
+					<strong>But is there anything like a <abbr title="comma separated values">CSV</abbr> file format for graphs?</strong>
+			</p>
+			<p>
+					The answer is <em>yes</em>!
+					The answer is: <strong>GDF</strong>.
+			</p>
+
+			<section>
+				<h2><abbr title="comma separated values">CSV</abbr> Format</h2>
+				<p>
+					The <em><abbr title="comma separated values">CSV</abbr></em> format is a very simple format for storing spreadsheets.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+"Name","DOB","Sex"
+"Joe Blow","1922-11-15","male"
+"Jane Doe","1980-02-14","female"
+"Homer Jay Simpson","1955-05-12","male"
+"Philip J. Fry","1974-08-09","male"
+</code></pre>
+					<figcaption>
+						<strong>Figure 1.</strong>
+						An example <abbr title="comma separated values">CSV</abbr> file.
+						This <abbr title="comma separated values">CSV</abbr> file has 3 columns:
+						<em>name</em>,
+						<em><abbr title="date of birth">DOB</abbr></em> and
+						<em>sex</em>.
+						Also, this <abbr title="comma separated values">CSV</abbr> file has 4 rows.
+						(<a href="figure1.csv">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see it is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					All the major spreadsheet software support it.
+					And software that exports (to a spreadsheet file or "to Excel") tend to export to <abbr title="comma separated values">CSV</abbr>.
+				</p>
+				<p>
+					As far as tabular data is concerned, <abbr title="comma separated values">CSV</abbr> is ubiquitous.
+				</p>
+				<p>
+					In a spreadsheet software package, that example <abbr title="comma separated values">CSV</abbr> file in <em>figure 1</em> might look something like this:
+				</p>
+				<figure>
+					<img src="figure2.png" />
+					<figcaption>
+						<strong>Figure 2.</strong>
+						Screenshot of the <abbr title="comma separated values">CSV</abbr> shown in <em>figure 1</em> loaded into
+						LibreOffice Calc.
+					</figcaption>
+				</figure>
+			</section>
+
+
+			<section>
+				<h2>GDF Format</h2>
+				<p>
+					But <abbr title="comma separated values">CSV</abbr> is for tabular-type data.
+					<strong>Is there something as simple for graph-type data?</strong>
+				</p>
+				<p>
+					The answer is <em>yes</em>!
+				</p>
+				<p>
+					That is what <strong>GDF</strong> is.
+				</p>
+				<p>
+					The <em>GDF</em> format is a very simple format for storing <em>graphs</em>.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+edgedef> node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 3.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>a</em>,
+						<em>b</em>,
+						<em>c</em>,
+						<em>d</em> and
+						<em>e</em>.
+						Also, this GDF file has 4 edges.
+						(<a href="figure3.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see this too is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					(Both Gephi and Guess support it.)
+				</p>
+				<p>
+					In a graph visualization software, it might look something like this:
+				</p>
+				<figure>
+					<img src="figure4.png" />
+					<figcaption>
+						<strong>Figure 4.</strong>
+						Screenshot of the GDF file shown in <em>figure 3</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+				<p>
+					Here are some (more) complex <em>GDF</em> files, just to give you a sense of what <em>GDF</em> files can look like....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+cherry
+c
+n235
+"Joe Blow"
+"a,b,c"
+edgedef> node1,node2
+cherry,c
+n235,c
+c,"Joe Blow"
+"Jow Blow","a,b,c"
+"a,b,c",c
+</code></pre>
+					<figcaption>
+						<strong>Figure 5.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>cherry</em>,
+						<em>c</em>,
+						<em>n235</em>,
+						<em>"Joe Blow"</em> and
+						<em>"a,b,c"</em>.
+						Also, this GDF file has 5 edges.
+					</figcaption>
+				</figure>
+				<p>
+					And....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,style
+me,1
+friend_1,2
+friend_2,2
+friend_3,2
+friend_4,2
+edgedef> node1,node2
+me,friend_1
+me,friend_2
+me,friend_3
+me,friend_4
+friend_1,friend_2
+friend_1,friend_3
+friend_2,friend_3
+</code></pre>
+					<figcaption>
+						<strong>Figure 6.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>me</em>,
+						<em>friend_1</em>,
+						<em>friend_2</em>,
+						<em>friend_3</em> and
+						<em>friend_4</em>.
+						Also, this GDF file has 7 edges.
+						This GDF file also makes use of the built-in node <em>style</em>.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Two Sections To A GDF File Format</h2>
+				<p>
+					You probably already noticed that a <em>GDF</em> file has 2 section:
+					a <em>node-section</em> and an <em>edge-section</em>.
+				</p>
+				<p>
+					If we consider the <em>GDF</em> files in <em>figure 3</em>, the <em>node-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+</code></pre>
+					<figcaption>
+						<strong>Figure 7.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the nodes in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					And the <em>edge-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+edgedef> node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 8.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the edges in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					If you take what is in <em>figure 7</em> and <em>figure 8</em> and combine them (to get what you have in <em>figure 3</em>) you have a complete <em>GDF</em> file.
+				</p>
+			</section>
+
+			<section>
+				<h2>Advanced Nodes</h2>
+				<p>
+					There are some advanced options for nodes.
+					Although you can keep things as simple as what you see in <em>figure 7</em>, there are some advanced features built-in to GDF that give you additional capabilities with nodes.
+				</p>
+				<p>
+					Here is a list of them:
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>
+								Name
+							</th>
+							<th>
+								Type
+							</th>
+							<th>
+								Description
+							</th>
+							<th>
+								Default
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<code>x</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								The x-coordinate of the node.
+							</td>
+							<td>
+								<em>random</em>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>y</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								The y-coordinate of the node.
+							</td>
+							<td>
+								<em>random</em>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>visible</code>
+							</td>
+							<td>
+								BOOLEAN
+							</td>
+							<td>
+								Whether the node should be displayed or not.
+							</td>
+							<td>
+								true
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>color</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>strokecolor</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								cadetblue
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>fixed</code>
+							</td>
+							<td>
+								BOOLEAN
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								false
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>style</code>
+							</td>
+							<td>
+								INT
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								1
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>width</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								4
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>height</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								4
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>label</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								<em>the node name</em>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>labelvisible</code>
+							</td>
+							<td>
+								BOOLEAN
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								false
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>labelcolor</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								The color of the label.
+							</td>
+							<td>
+								<em>the node color</em>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>image</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								The filename of the image.
+							</td>
+							<td>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					Some of these need a bit more explanation.
+				</p>
+			</section>
+	</body>
+</html>
+

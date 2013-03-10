@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 07 Mar 2013 07:23:41 -0800</lastBuildDate>
+		<lastBuildDate>Sat, 09 Mar 2013 12:14:09 -0800</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>GDF: A CSV Like Format For Graphs</title>
+			<link>http://datascholars.com/post/2013/03/09/gdf/</link>
+			<pubDate>Sat, 09 Mar 2013 12:14:09 -0800</pubDate>
+		</item>
 		<item>
 			<title>Maximizing Acceptance Probability for Active Friending in On-Line Social Networks (De-Nian Yang, Hui-Ju Hung, Wang-Chien Lee, Wei Chen)</title>
 			<link>http://datascholars.com/post/2013/03/07/maximizing_friending_acceptance/</link>

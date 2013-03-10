@@ -277,7 +277,7 @@ d,e
 					<figcaption>
 						<strong>Figure 9.</strong>
 						An example GDF file, with labels on the nodes.
-						(<a href="figure3.gdf">download</a>)
+						(<a href="figure9.gdf">download</a>)
 					</figcaption>
 				</figure>
 				<p>
@@ -291,6 +291,57 @@ d,e
 						Gephi.
 					</figcaption>
 				</figure>
+			</section>
+
+			<section>
+				<h2>Edge Weights</h2>
+				<p>
+					Weights can be given to edges.
+				</p>
+				<p>
+					Building on what we have in <em>figure 9</em>, an example of this is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef> node1,node2,weight
+a,b,2
+b,c,30
+b,d,0.4
+d,e,200
+</code></pre>
+					<figcaption>
+						<strong>Figure 11.</strong>
+						An example GDF file, with <em>weights</em> on the nodes.
+						(<a href="figure11.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					In a graph visualization software, the GDF filei in <em>figure 11</em> might look something like:
+				</p>
+				<figure>
+					<img src="figure12.png" />
+					<figcaption>
+						<strong>Figure 12.</strong>
+						Screenshot of the GDF file shown in <em>figure 11</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>That's All Folks</h2>
+				<p>
+					And that is really the important stuff when it comes to <em>GDF</em> files.
+				</p>
+				<p>
+					There are some other capabilities, but for most your needs this is enough to know.
+				</p>
 			</section>
 	</body>
 </html>

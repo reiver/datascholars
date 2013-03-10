@@ -1,0 +1,11 @@
+nodedef> name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef> node1,node2
+a,b
+b,c
+b,d
+d,e

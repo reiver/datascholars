@@ -175,20 +175,20 @@ c,"Joe Blow"
 				</p>
 				<figure>
 <pre><code>
-nodedef&gt; name,style
-me,1
-friend_1,2
-friend_2,2
-friend_3,2
-friend_4,2
-edgedef> node1,node2
-me,friend_1
-me,friend_2
-me,friend_3
-me,friend_4
-friend_1,friend_2
-friend_1,friend_3
-friend_2,friend_3
+nodedef&gt; name,label
+me,"Joe Blow"
+friend_1,"Jane Doe"
+friend_2,Homer Jay Simpson"
+friend_3,"Philip J. Fry"
+friend_4,"Sheldon Lee Cooper"
+edgedef> node1,node2,weight
+me,friend_1,1.1
+me,friend_2,7.4
+me,friend_3,100.0003
+me,friend_4,3.14159265358979323846264338327950
+friend_1,friend_2,33.3
+friend_1,friend_3,0.000001
+friend_2,friend_3,12.345
 </code></pre>
 					<figcaption>
 						<strong>Figure 6.</strong>
@@ -252,235 +252,45 @@ d,e
 			</section>
 
 			<section>
-				<h2>Advanced Nodes</h2>
+				<h2>Node Labels</h2>
 				<p>
-					There are some advanced options for nodes.
-					Although you can keep things as simple as what you see in <em>figure 7</em>, there are some advanced features built-in to GDF that give you additional capabilities with nodes.
+					Names can be given label.
+					(Labels are human-readable names.)
 				</p>
 				<p>
-					Here is a list of them:
+					You do this in the <em>node-section</em> with something like:
 				</p>
-				<table>
-					<thead>
-						<tr>
-							<th>
-								Name
-							</th>
-							<th>
-								Type
-							</th>
-							<th>
-								Description
-							</th>
-							<th>
-								Default
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<code>x</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								The x-coordinate of the node.
-							</td>
-							<td>
-								<em>random</em>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>y</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								The y-coordinate of the node.
-							</td>
-							<td>
-								<em>random</em>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>label</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								The label of the node.
-							</td>
-							<td>
-								<em>the node name</em>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>labelvisible</code>
-							</td>
-							<td>
-								BOOLEAN
-							</td>
-							<td>
-								Whether to show the label or not.
-							</td>
-							<td>
-								<code>false</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>labelcolor</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								The color of the label.
-							</td>
-							<td>
-								<em>the node color</em>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>visible</code>
-							</td>
-							<td>
-								BOOLEAN
-							</td>
-							<td>
-								Whether the node should be displayed or not.
-							</td>
-							<td>
-								<code>true</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>color</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								The color of the node.
-								Can be a color name.
-								(Ex: <code>red</code>)
-								Or can be an RGB triplet.
-								(Ex: <code>100.232.80</code>)
-							</td>
-							<td>
-								<code>cornflowerblue</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>strokecolor</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								The color of the thin line around the node.
-							</td>
-							<td>
-								<code>cadetblue</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>fixed</code>
-							</td>
-							<td>
-								BOOLEAN
-							</td>
-							<td>
-								May the node be moved.
-							</td>
-							<td>
-								<code>false</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>width</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								The width of the node.
-							</td>
-							<td>
-								<code>4</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>height</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								The height of the node.
-							</td>
-							<td>
-								<code>4</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>style</code>
-							</td>
-							<td>
-								INT
-							</td>
-							<td>
-								The node style.
-								The valid values are: <em>1</em>, <em>2</em>, <em>3</em>, <em>4</em>, <em>5</em>, <em>6</em> and <em>7</em>.
-								The meanings of each of thes values is:
-								<br />
-								1 &#8594; <em>rectangle</em>,
-								2 &#8594; <em>ellipse</em>,
-								3 &#8594; <em>rectangle with rounded corners</em>,
-								4 &#8594; <em>rectangle with text inside</em>,
-								5 &#8594; <em>ellipse with text inside</em>,
-								6 &#8594; <em>rectangle with rounded corners with text inside</em>,
-								and 7 &#8594; <em>an image</em>.
-								<br />
-								(When <code>style</code> is <em>7</em>, <code>image</code> must be used to specify the image file.)
-							</td>
-							<td>
-								<code>1</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>image</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								The filename of the image. For this to work <code>style</code> must be <em>7</em>.
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef> node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 9.</strong>
+						An example GDF file, with labels on the nodes.
+						(<a href="figure3.gdf">download</a>)
+					</figcaption>
+				</figure>
 				<p>
-					Some of these need a bit more explanation.
+					In a graph visualization software, it might look something like this: 
 				</p>
+				<figure>
+					<img src="figure10.png" />
+					<figcaption>
+						<strong>Figure 10.</strong>
+						Screenshot of the GDF file shown in <em>figure 9</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
 			</section>
 	</body>
 </html>

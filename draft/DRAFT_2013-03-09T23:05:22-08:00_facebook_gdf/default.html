@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="reiver" />
+
+		<title>Exporting Your Facebook Social Network To GDF</title>
+
+		<meta name="keywords" content="facebook, gdf" />
+
+		<meta name="DC.Date.Created" content="2013-03-09T23:05:23-08:00" />
+	</head>
+	<body>
+			<p>
+				<a href="http:/facebook.com/">Facebook</a> is a popular online social network.
+				It offers researchers interested in <em>social network analysis</em> a (potentially) large data set to work with.
+			</p>
+			<p>
+				But graph visualization software, such as <a href="http://gephi.org/">Gephi</a> and <a href="http://graphexploration.cond.org/">Guess</a>, do <strong>not</strong> have a (built-in) way of directly accessing Facebook data.
+			</p>
+			<p>
+				Finding a way to export your Facebook data into a file format, such as <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>, is a necesary intermediate step, before you can <em>see</em> what it looks like.
+			</p>
+
+			<section>
+				<h2>Export Your Facebook Friends To GDF</h2>
+				<p>
+					A little knowledge of the <a href="https://developers.facebook.com/docs/reference/api/">Facebook Graph API</a> makes a task of <em>exporting</em> your <em>Facebook friends</em> to a format like GDF relatively easy.
+				</p>
+				<p>
+					With said knowledge, the exporting process becomes a 4-step process:<br />
+					#1 get a Facebook access token,<br />
+					#2 call the <code>/me</code> API end point,<br />
+					#3 call the <code>/me/friends</code> API end point and<br />
+					#4 transform the JSON results that <em>step #2</em> and <em>step #3</em> gave us into <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>.
+				</p>
+
+				<section>
+					<h3>Step #1: Get a Facebook Access Token</h3>
+					<p>
+						If you are doing this for <em>your own</em> Facebook data (rather than <em>random users</em> off of the Internet) then
+						<em>Step #1</em> can be accomplished by just going Facebook's <a href="https://developers.facebook.com/tools/explorer">Graph API Explorer</a>
+						and then grabbing the Facebook <em>access token</em> from that page and using it to construct the URLs in <em>step #2</em> and <em>step #3</em>.
+					</p>
+					<p>
+						Alternatively, if you are doing this for random people off the Internet, you will likely have to learn how to create a full-fledged web-application with Facebook support.
+						That's out of the scope of this article.
+						Here I want to focus on how to export Facebook social network data into GDF, so you can view it (and manipulate it) in graph visualization software, such as
+						Gephi and Guess.
+					</p>
+				</section>
+				<section>
+					<h3>Step #2: Construct and Call the <code>/me</code> Facebook API URL</h3>
+					<p>
+						Before you get the list of friends, you need to get data on the person for whom the <em>access token</em> is for.
+						If this is <em>your</em> Facebook <em>access token</em>, then this will be <em>your</em> data we are getting.
+					</p>
+					<p>
+						We need to get this data because this person needs to be in the graph also!
+						After all, these are this person's Facebook friends, and each friend will have an edge (in the graph) connecting to this person!
+					</p>
+					<p>
+						So, once you have the Facebook <em>access token</em> (described in <em>step #1</em>) you can construct the <code>/me</code> Facebook API URL.
+					</p>
+					<p>
+						As a URL, this looks something like:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me?access_token=Accc7DWxsEF9T22ccd14SQJx9
+</code></pre>
+						<figcaption>
+							<strong>Figure 1.</strong>
+							An example Facebook Graph API URL, used to get a Facebook user's basic info.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that your API URL will be slightly different than what appears in <em>figure 1</em> because your Facebook <em>access token</em> will be different.
+					</p>
+					<p>
+						So, if your Facebook <em>access token</em> is "<code>uxRAAcEose5BPWxzzRucb7A2</code>", then your API URL will be:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
+</code></pre>
+						<figcaption>
+							<strong>Figure 2.</strong>
+							Another example Facebook Graph API URL, used to get a Facebook user's basic info.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that the API URLs in <em>figure 1</em> and <em>figure 2</em> are different.
+					</p>
+					<p>
+						<strong>NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
+						If this happens to you, don't worry.
+						Just go get another one.
+					</p>
+					<p>
+						When you call the <code>/me</code> Facebook API URL (shown in <em>figure 1</em> and <em>figure 2</em>) you will get output that looks something like:
+					</p>
+					<figure>
+<pre><code>
+{
+    "id": "100000593854809",
+    "name": "Sheldon Lee Cooper",
+    "first_name": "Sheldon",
+    "middle_name": "Lee",
+    "last_name": "Cooper",
+    "link": "https://www.facebook.com/sheldonleecooper",
+    "username": "sheldonleecooper",
+    "locale": "en_US",
+    "updated_time": "2011-03-22T18:34:27+0000"
+}
+</code></pre>
+						<figcaption>
+							<strong>Figure 3.</strong>
+							Example JSON output from the Facebook Graph API URL, used to get a Facebook user's basic info, shown in <em>figure 1</em> and <em>figure 2</em>.
+							(The data in the JSON you receive will be different, but the format will be the same.)
+						</figcaption>
+					</figure>
+					<p>
+						Although in different contexts, different parts of this JSON output will be interesting.
+						For our purposes, we only care about 2 things here: <code>id</code> and <code>name</code>.
+						(Which are "<code>100000593854809</code>" and "<code>Sheldon Lee Cooper</code>" respectively.)
+					</p>
+				</section>
+				<section>
+					<h3>Step #3: Construct and Call the <code>/me/friends</code> Facebook API URL</h3>
+					<p>
+						Once you have the Facebook <em>access token</em> (described in <em>step #1</em>) you can construct the <code>/me/friends</code> Facebook API URL.
+					</p>
+					<p>
+						As a URL, this looks something like:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=A7AFD4209F097CA23A2B23AA
+</code></pre>
+						<figcaption>
+							<strong>Figure 4.</strong>
+							An example Facebook Graph API URL, used to get a Facebook user's list of friends.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that your API URL will be slightly different than what appears in <em>figure 4</em> because your Faecbook <em>access token</em> will be different.
+					</p>
+					<p>
+						So, if your Facebook <em>access token</em> is "<code>uxRAAcEose5BPWxzzRucb7A2</code>", then your API URL will be:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
+</code></pre>
+						<figcaption>
+							<strong>Figure 5.</strong>
+							Another example Facebook Graph API URL, used to get a Facebook user's list of friends.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that the API URLs in <em>figure 4</em> and <em>figure 5</em> are different.
+					</p>
+					<p>
+						<strong>NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
+						If this happens to you, don't worry.
+						Just go get another one.
+					</p>
+					<p>
+						When you call the <code>/me/friends</code> Facebook API URL (shown in <em>figure 4</em> and <em>figure 5</em>) you will get output that looks something like:
+					</p>
+					<figure>
+<pre><code>
+{
+    "data": [
+        {
+            "name": "Joe Blow",
+            "id": "8004"
+        },
+        {
+            "name": "Jane Doe",
+            "id": "1010104"
+        },
+        {
+            "name": "Philip J. Fry",
+            "id": "1110021"
+        },
+        {
+            "name": "John Doe",
+            "id": "1111178"
+        },
+        {
+            "name": "Homer Jay Simpson",
+            "id": "179983422054014"
+        }
+    ],
+    "paging": {
+        "next": "https://graph.facebook.com/123/friends?limit=5&offset=5&__after_id=179983422054014"
+    }
+}
+</code></pre>
+						<figcaption>
+							<strong>Figure 6.</strong>
+							Example JSON output from the Facebook Graph API URL, used to get a Facebook user's list of friends shown in <em>figure 4</em> and <em>figure 5</em>.
+							(The data in the JSON you receive will be different, but the format will be the same.)
+							Note that the result from this API call is (potentially) paginated;
+							and you may need to make more than one API call, to get <em>all</em> the friends,
+							by calling the URL (in the JSON) at <code>data.paging</code>.
+						</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Step #3: Create a GDF File</h3>
+					<p>
+						So, we now have JSON output (from <em>step #2</em> and <em>step #3</em>).
+						But we can't stop there because the graph visualization software will NOT understand this (JSON) data.
+						We have to turn this data into something graph visualization software understand.
+					</p>
+					<p>
+						We have to turn this data into <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>.
+					</p>
+					<p>
+						For someone with basic programming skills, this should be a straight forward task.
+					</p>
+				</section>
+				<section>
+					<h3>Skip The Steps: A Program Exports Your Facebook Friends To GDF</h3>
+					<p>
+						For those that don't want to program this themselves (or can't program this themselves) I have included a <em>command line</em> PHP program that does all this for you.
+						It is called "<code>fb_socialnetwork_0.php</code>".
+					</p>
+					<p>
+						You run it from the command line with a command like:
+					</p>
+					<figure>
+<pre><code>
+php fb_socialnetwork_0.php --access_token=AxR7oXeAAcEoAe4eeW9zzB2Wb
+</code></pre>
+						<figcaption>
+							<strong>Figure 7.</strong>
+							#########
+						</figcaption>
+					</figure>
+					<p>
+						And it will give you output like:
+					</p>
+					<figure>
+<pre><code>
+nodedef> name,label
+n100000593854809,"Sheldon Lee Cooper"
+n8004,"Joe Blow"
+n1010104,"Jane Doe"
+n1110021,"Philip J. Fry"
+n1111178,"John Doe"
+n179983422054014,"Homer Jay Simpson"
+edgedef> node1,node2,weight
+n100000593854809,n8004
+n100000593854809,n1010104
+n100000593854809,n1110021
+n100000593854809,n1111178
+n100000593854809,n179983422054014
+</code></pre>
+						<figcaption>
+							<strong>Figure 8.</strong>
+							The (hypothetical) GDF file created from the JSON results in <em>figure 3</em> and <em>figure 6</em>.
+							Note that the only edges in this graph are edges connecting
+							<code>"Sheldon Lee Cooper"</code> (<code>n100000593854809</code>) to everyone else.
+							(<a rel="enclosure" href="figure8.gdf">download</a>)
+						</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>What It Looks Like</h3>
+					<p>
+						Let's see what the GDF file in <em>figure 8</em> looks like:
+					</p>
+					<figure>
+						<img src="figure9.png" />
+						<figcaption>
+							<strong>Figure 9.</strong>
+							Screenshot of the GDF file shown in <em>figure 8</em> loaded into Gephi.
+						</figcaption>
+					</figure>
+					<p>
+						<strong>This is actually a <em>really</em> UNINTERESTING graph!</strong>
+						We gain no insight from viewing the data in this way.
+					</p>
+					<p>
+						To make this more interesting, not only do we need the <em>list of friends</em> (as we have already gotten) <strong>but</strong> we also need our friends' friends.
+						We need to see how our friends are connected to each other.
+						We need to see if there are <em>communities</em> (in the graph theory sense of the word) amoung our friends.
+						(That is what we do next.)
+					</p>
+				</section>
+			</section>
+
+			<section>
+				<h2>Export Your Facebok Friends And Friend Of Friends To GDF</h2>
+				<p>
+					As you can see from <em>figure #####</em>, exporting just your Facebook friends to a GDF file and viewing it in a graph visualization software isn't useful.
+				</p>
+				<p>
+					Where this type of thing becomes more useful is is where you can go <em>deeper</em> into the network.
+					For example, where you can get graph data on your <em>friends of friends</em>.
+				</p>
+			</section>
+
+			<section>
+				<h2>Filtering Out A (Single) Friend List</h2>
+				<p>
+					With my Facebook social network, I have ####
+				</p>
+			</section>
+	</body>
+</html>
+

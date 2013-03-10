@@ -44,6 +44,420 @@
 
 		<article>
 			<div class="pubdate">
+				<time datetime="2013-03-09T12:14:09-08:00">March 9, 2013</time>
+			</div>
+			<h1><a href="http://datascholars.com/post/2013/03/09/gdf/">GDF: A CSV Like Format For Graphs</a></h1>
+			<address
+				 
+					class="reblogged"
+				 
+			>
+				 
+					<a rel="bookmark canonical" href="http://changelog.ca/log/2013/03/09/gdf">cross-blogged</a>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+					Sometimes the data you are dealing with is a <em>graph</em>.
+			</p>
+			<p>
+					Before you even start considering how you will view your graph data
+					(such as by using <a href="http://gephi.org/">Gephi</a> or <a href="http://graphexploration.cond.org/">Guess</a>, etc)
+					you need to (serialize and) store you graph into some kind of <em>file format</em>.
+			</p>
+			<p>
+					If we were dealing with tabular data (instead of graph data) we would probably use a <abbr title="comma separated values">CSV</abbr> file, if we wanted to keep things simple.
+					<strong>But is there anything like a <abbr title="comma separated values">CSV</abbr> file format for graphs?</strong>
+			</p>
+			<p>
+					The answer is <em>yes</em>!
+					The answer is: <strong>GDF</strong>.
+			</p>
+
+			<section>
+				<h2><abbr title="comma separated values">CSV</abbr> Format</h2>
+				<p>
+					The <em><abbr title="comma separated values">CSV</abbr></em> format is a very simple format for storing spreadsheets.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+"Name","DOB","Sex"
+"Joe Blow","1922-11-15","male"
+"Jane Doe","1980-02-14","female"
+"Homer Jay Simpson","1955-05-12","male"
+"Philip J. Fry","1974-08-09","male"
+</code></pre>
+					<figcaption>
+						<strong>Figure 1.</strong>
+						An example <abbr title="comma separated values">CSV</abbr> file.
+						This <abbr title="comma separated values">CSV</abbr> file has 3 columns:
+						<em>name</em>,
+						<em><abbr title="date of birth">DOB</abbr></em> and
+						<em>sex</em>.
+						Also, this <abbr title="comma separated values">CSV</abbr> file has 4 rows.
+						(<a rel="enclosure" href="../../../../../data/post/2013/03/09/gdf/figure1.csv">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see it is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					All the major spreadsheet software supports it.
+					And software that exports (to a spreadsheet file or "to Excel") tend to export to <abbr title="comma separated values">CSV</abbr>.
+				</p>
+				<p>
+					As far as tabular data is concerned, <abbr title="comma separated values">CSV</abbr> is ubiquitous.
+				</p>
+				<p>
+					In a spreadsheet software package, that example <abbr title="comma separated values">CSV</abbr> file in <em>figure 1</em> might look something like this:
+				</p>
+				<figure>
+					<img src="../../../../../data/post/2013/03/09/gdf/figure2.png"/>
+					<figcaption>
+						<strong>Figure 2.</strong>
+						Screenshot of the <abbr title="comma separated values">CSV</abbr> shown in <em>figure 1</em> loaded into
+						LibreOffice Calc.
+					</figcaption>
+				</figure>
+			</section>
+
+
+			<section>
+				<h2>GDF Format</h2>
+				<p>
+					But <abbr title="comma separated values">CSV</abbr> is for tabular-type data.
+					<strong>Is there something as simple for graph-type data?</strong>
+				</p>
+				<p>
+					The answer is <em>yes</em>!
+				</p>
+				<p>
+					That is what <strong>GDF</strong> is.
+				</p>
+				<p>
+					The <em>GDF</em> format is a very simple format for storing <em>graphs</em>.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 3.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>a</em>,
+						<em>b</em>,
+						<em>c</em>,
+						<em>d</em> and
+						<em>e</em>.
+						Also, this GDF file has 4 edges.
+						(<a rel="enclosure" href="../../../../../data/post/2013/03/09/gdf/figure3.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see this too is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					(Both Gephi and Guess support it.)
+				</p>
+				<p>
+					In a graph visualization software, it might look something like this:
+				</p>
+				<figure>
+					<img src="../../../../../data/post/2013/03/09/gdf/figure4.png"/>
+					<figcaption>
+						<strong>Figure 4.</strong>
+						Screenshot of the GDF file shown in <em>figure 3</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+				<p>
+					Here are some (more) complex <em>GDF</em> files, just to give you a sense of what <em>GDF</em> files can look like....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+cherry
+c
+n235
+"Joe Blow"
+"a,b,c"
+edgedef&gt; node1,node2
+cherry,c
+n235,c
+c,"Joe Blow"
+"Jow Blow","a,b,c"
+"a,b,c",c
+</code></pre>
+					<figcaption>
+						<strong>Figure 5.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>cherry</em>,
+						<em>c</em>,
+						<em>n235</em>,
+						<em>"Joe Blow"</em> and
+						<em>"a,b,c"</em>.
+						Also, this GDF file has 5 edges.
+					</figcaption>
+				</figure>
+				<p>
+					And....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+me,"Joe Blow"
+friend_1,"Jane Doe"
+friend_2,Homer Jay Simpson"
+friend_3,"Philip J. Fry"
+friend_4,"Sheldon Lee Cooper"
+edgedef&gt; node1,node2,weight
+me,friend_1,1.1
+me,friend_2,7.4
+me,friend_3,100.0003
+me,friend_4,3.14159265358979323846264338327950
+friend_1,friend_2,33.3
+friend_1,friend_3,0.000001
+friend_2,friend_3,12.345
+</code></pre>
+					<figcaption>
+						<strong>Figure 6.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>me</em>,
+						<em>friend_1</em>,
+						<em>friend_2</em>,
+						<em>friend_3</em> and
+						<em>friend_4</em>.
+						Also, this GDF file has 7 edges.
+						This GDF file also makes use of the built-in node <code>label</code> and <code>weight</code> columns, in the <em>node</em> and <em>edge</em> sections, respectively.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Two Sections To A GDF File Format</h2>
+				<p>
+					You probably already noticed that a <em>GDF</em> file has 2 section:
+					a <em>node-section</em> and an <em>edge-section</em>.
+				</p>
+				<p>
+					If we consider the <em>GDF</em> files in <em>figure 3</em>, the <em>node-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+</code></pre>
+					<figcaption>
+						<strong>Figure 7.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the nodes in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					And the <em>edge-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 8.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the edges in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					If you take what is in <em>figure 7</em> and <em>figure 8</em> and combine them (to get what you have in <em>figure 3</em>) you have a complete <em>GDF</em> file.
+				</p>
+			</section>
+
+			<section>
+				<h2>Node Labels</h2>
+				<p>
+					Nodes can be given a label.
+					(Labels are human-readable text.)
+				</p>
+				<p>
+					You do this in the <em>node-section</em> with something like:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 9.</strong>
+						An example GDF file, with labels on the nodes.
+						(<a rel="enclosure" href="../../../../../data/post/2013/03/09/gdf/figure9.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					In a graph visualization software, it might look something like this: 
+				</p>
+				<figure>
+					<img src="../../../../../data/post/2013/03/09/gdf/figure10.png"/>
+					<figcaption>
+						<strong>Figure 10.</strong>
+						Screenshot of the GDF file shown in <em>figure 9</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Edge Weights</h2>
+				<p>
+					Weights can be given to edges.
+					(These are <em>weights</em> in the <em>graph theory</em> sense of the word.)
+				</p>
+				<p>
+					Building on what we have in <em>figure 9</em>, an example of this is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef&gt; node1,node2,weight
+a,b,2
+b,c,30
+b,d,0.4
+d,e,200
+</code></pre>
+					<figcaption>
+						<strong>Figure 11.</strong>
+						An example GDF file, with <em>weights</em> on the nodes.
+						(<a rel="enclosure" href="../../../../../data/post/2013/03/09/gdf/figure11.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					In a graph visualization software, the GDF filei in <em>figure 11</em> might look something like:
+				</p>
+				<figure>
+					<img src="../../../../../data/post/2013/03/09/gdf/figure12.png"/>
+					<figcaption>
+						<strong>Figure 12.</strong>
+						Screenshot of the GDF file shown in <em>figure 11</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+				<p>
+					Note that the graph visualization software, used to create <em>figure 12</em>, represented the <em>edge weights</em> by the <em>thickness</em> and the <em>length</em> of the edges.
+				</p>
+			</section>
+
+			<section>
+				<h2>That's All Folks</h2>
+				<p>
+					And that is really the important stuff when it comes to <em>GDF</em> files.
+				</p>
+				<p>
+					There are some other capabilities, but for most your needs this is enough to know.
+				</p>
+				<p>
+					One thing to keep in mind though: make sure to start the node names with a letter.
+					(Else, put the node name into a quoted string.)
+				</p>
+				<p>
+					And <abbr title="by the way">BTW</abbr>. this is what my generated GDF files tend to look like (although usually much much larger):
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+n11157,"James Wilson"
+n12008,"Fred Olson"
+n12009,"John Williams"
+n12407,"Natalie McDonald"
+n14773,"Gwen Nelson"
+edgedef&gt; node1,node2,weight
+n11157,n12008
+n12008,n12009
+n12008,n12407
+n12407,n14773
+</code></pre>
+					<figcaption>
+						<strong>Figure 11.</strong>
+						An example GDF file, with <em>weights</em> on the nodes.
+					</figcaption>
+				</figure>
+			</section>
+	
+
+<address class="vcard" itemscope="true" itemtype="http://schema.org/Person">
+	-- <a rel="author" class="fn n url" itemprop="name url" href="http://changelog.ca/"><span class="given-name" itemprop="givenName">Charles</span> <span class="additional-name" itemprop="additionalName">Iliya</span> <span class="family-name" itemprop="familyName">Krempeaux</span></a>
+</address>
+
+
+			</div>
+			<div class="comments">
+
+    <div id="disqus_thread"></div>
+    	<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'datascholars'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
 				<time datetime="2013-03-07T07:23:41-08:00">March 7, 2013</time>
 			</div>
 			<h1><a href="post/2013/03/07/maximizing_friending_acceptance/">Maximizing Acceptance Probability for Active Friending in On-Line Social Networks (De-Nian Yang, Hui-Ju Hung, Wang-Chien Lee, Wei Chen)</a></h1>

@@ -308,111 +308,13 @@ d,e
 						</tr>
 						<tr>
 							<td>
-								<code>visible</code>
-							</td>
-							<td>
-								BOOLEAN
-							</td>
-							<td>
-								Whether the node should be displayed or not.
-							</td>
-							<td>
-								true
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>color</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>strokecolor</code>
-							</td>
-							<td>
-								STRING
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								cadetblue
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>fixed</code>
-							</td>
-							<td>
-								BOOLEAN
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								false
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>style</code>
-							</td>
-							<td>
-								INT
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								1
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>width</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								4
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<code>height</code>
-							</td>
-							<td>
-								DOUBLE
-							</td>
-							<td>
-								
-							</td>
-							<td>
-								4
-							</td>
-						</tr>
-						<tr>
-							<td>
 								<code>label</code>
 							</td>
 							<td>
 								STRING
 							</td>
 							<td>
-								
+								The label of the node.
 							</td>
 							<td>
 								<em>the node name</em>
@@ -426,10 +328,10 @@ d,e
 								BOOLEAN
 							</td>
 							<td>
-								
+								Whether to show the label or not.
 							</td>
 							<td>
-								false
+								<code>false</code>
 							</td>
 						</tr>
 						<tr>
@@ -448,13 +350,123 @@ d,e
 						</tr>
 						<tr>
 							<td>
+								<code>visible</code>
+							</td>
+							<td>
+								BOOLEAN
+							</td>
+							<td>
+								Whether the node should be displayed or not.
+							</td>
+							<td>
+								<code>true</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>color</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								<code>cornflowerblue</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>strokecolor</code>
+							</td>
+							<td>
+								STRING
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								<code>cadetblue</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>fixed</code>
+							</td>
+							<td>
+								BOOLEAN
+							</td>
+							<td>
+								
+							</td>
+							<td>
+								<code>false</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>width</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								The width of the node.
+							</td>
+							<td>
+								<code>4</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>height</code>
+							</td>
+							<td>
+								DOUBLE
+							</td>
+							<td>
+								The height of the node.
+							</td>
+							<td>
+								<code>4</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<code>style</code>
+							</td>
+							<td>
+								INT
+							</td>
+							<td>
+								The node style.
+								The valid values are: <em>1</em>, <em>2</em>, <em>3</em>, <em>4</em>, <em>5</em>, <em>6</em> and <em>7</em>.
+								The meanings of each of thes values is:
+								<br />
+								1 &#8594; <em>rectangle</em>,
+								2 &#8594; <em>ellipse</em>,
+								3 &#8594; <em>rectangle with rounded corners</em>,
+								4 &#8594; <em>rectangle with text inside</em>,
+								5 &#8594; <em>ellipse with text inside</em>,
+								6 &#8594; <em>rectangle with rounded corners with text inside</em>,
+								and 7 &#8594; <em>an image</em>.
+								<br />
+								(When <code>style</code> is <em>7</em>, <code>image</code> must be used to specify the image file.)
+							</td>
+							<td>
+								<code>1</code>
+							</td>
+						</tr>
+						<tr>
+							<td>
 								<code>image</code>
 							</td>
 							<td>
 								STRING
 							</td>
 							<td>
-								The filename of the image.
+								The filename of the image. For this to work <code>style</code> must be <em>7</em>.
 							</td>
 							<td>
 								

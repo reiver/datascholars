@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 10 Mar 2013 23:49:40 -0800</lastBuildDate>
+		<lastBuildDate>Mon, 11 Mar 2013 07:32:53 -0800</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>New Data Science Meetup Group In Vancouver</title>
+			<link>http://datascholars.com/post/2013/03/11/data_science_meetup_vancouver/</link>
+			<pubDate>Mon, 11 Mar 2013 07:32:53 -0800</pubDate>
+		</item>
 		<item>
 			<title>Exporting Your Facebook Social Network To GDF: Part 1</title>
 			<link>http://datascholars.com/post/2013/03/10/facebook_gdf/</link>

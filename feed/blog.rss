@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sat, 09 Mar 2013 12:14:09 -0800</lastBuildDate>
+		<lastBuildDate>Sun, 10 Mar 2013 23:49:40 -0800</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Exporting Your Facebook Social Network To GDF: Part 1</title>
+			<link>http://datascholars.com/post/2013/03/10/facebook_gdf/</link>
+			<pubDate>Sun, 10 Mar 2013 23:49:40 -0800</pubDate>
+		</item>
 		<item>
 			<title>GDF: A CSV Like Format For Graphs</title>
 			<link>http://datascholars.com/post/2013/03/09/gdf/</link>

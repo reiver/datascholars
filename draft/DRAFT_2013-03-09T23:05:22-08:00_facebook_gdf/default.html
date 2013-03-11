@@ -3,7 +3,7 @@
 	<head>
 		<meta name="author" content="reiver" />
 
-		<title>Exporting Your Facebook Social Network To GDF</title>
+		<title>Exporting Your Facebook Social Network To GDF: Part 1</title>
 
 		<meta name="keywords" content="facebook, gdf" />
 
@@ -24,7 +24,7 @@
 			<section>
 				<h2>Export Your Facebook Friends To GDF</h2>
 				<p>
-					A little knowledge of the <a href="https://developers.facebook.com/docs/reference/api/">Facebook Graph API</a> makes a task of <em>exporting</em> your <em>Facebook friends</em> to a format like GDF relatively easy.
+					A little knowledge of the <a href="https://developers.facebook.com/docs/reference/api/">Facebook Graph API</a> makes the task of <em>exporting</em> your <em>Facebook friends</em> to a format like GDF relatively easy.
 				</p>
 				<p>
 					With said knowledge, the exporting process becomes a 4-step process:<br />
@@ -42,7 +42,7 @@
 						and then grabbing the Facebook <em>access token</em> from that page and using it to construct the URLs in <em>step #2</em> and <em>step #3</em>.
 					</p>
 					<p>
-						Alternatively, if you are doing this for random people off the Internet, you will likely have to learn how to create a full-fledged web-application with Facebook support.
+						Alternatively, if you are doing this for random people off of the Internet, you will likely have to learn how to create a full-fledged web-application with Facebook support.
 						That's out of the scope of this article.
 						Here I want to focus on how to export Facebook social network data into GDF, so you can view it (and manipulate it) in graph visualization software, such as
 						Gephi and Guess.
@@ -118,11 +118,11 @@ https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
 						<figcaption>
 							<strong>Figure 3.</strong>
 							Example JSON output from the Facebook Graph API URL, used to get a Facebook user's basic info, shown in <em>figure 1</em> and <em>figure 2</em>.
-							(The data in the JSON you receive will be different, but the format will be the same.)
+							(The data in the JSON you receive will be different, but the format will be the same, or very similar.)
 						</figcaption>
 					</figure>
 					<p>
-						Although in different contexts, different parts of this JSON output will be interesting.
+						Although in different contexts, different parts of the JSON output (in <em>figure 3</em>) will be interesting.
 						For our purposes, we only care about 2 things here: <code>id</code> and <code>name</code>.
 						(Which are "<code>100000593854809</code>" and "<code>Sheldon Lee Cooper</code>" respectively.)
 					</p>
@@ -165,7 +165,7 @@ https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
 						Note that the API URLs in <em>figure 4</em> and <em>figure 5</em> are different.
 					</p>
 					<p>
-						<strong>NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
+						<strong>AGAIN NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
 						If this happens to you, don't worry.
 						Just go get another one.
 					</p>
@@ -249,7 +249,10 @@ php fb_socialnetwork_1.php --access_token=AxR7oXeAAcEoAe4eeW9zzB2Wb
 						</figcaption>
 					</figure>
 					<p>
-						And it will give you output like (that will be stored in the file "<code>fbsn_1.gdf</code>", unless you override it with the <code>--output=...</code> switch):
+						And it will give you output like (that will be stored in the file "<code>fbsn_1.gdf</code>", unless you override it with the <code>--output=...</code> switch).
+					</p>
+					<p>
+						The output from this will look something like this:
 					</p>
 					<figure>
 <pre><code>
@@ -298,12 +301,17 @@ n100000593854809,n179983422054014
 					</p>
 					<p>
 						To make this more interesting, not only do we need the <em>list of friends</em> (as we have already gotten) <strong>but</strong> we also need our friends' friends.
+					</p>
+					<p><strong>
 						We need to see how our friends are connected to each other.
 						We need to see if there are <em>communities</em> (in the graph theory sense of the word) amoung our friends.
-						(That is what we do next.)
+					</strong></p>
+					<p>
+						But that is for the <em>part 2 article</em>; this is the <em>part 1 article</em>.
+						Before we can run, we need to walk; and this article shows you the basics.
 					</p>
 					<p>
-						But before doing that, here is the graph of my personal Facebook social network:
+						To show you a <em>real</em> version of this graph, here is the graph of <em>my</em> personal Facebook social network:
 					</p>
 					<figure>
 						<img src="figure10.png" />
@@ -317,107 +325,12 @@ n100000593854809,n179983422054014
 						(Obviously there are <strong>a lot</strong> of friends in <em>my</em> Facebook social network export.
 						But this is <em>still</em> a <em>very</em> uninteresting graph; even if there are more nodes.)
 					</p>
-					<p>
-						Now let's look at exporting our friends of friends to GDF too, so we can look at an interesting graph.
-					</p>
 				</section>
 			</section>
-
 			<section>
-				<h2>Export Your Facebok Friends <em>And</em> Friend Of Friends To GDF</h2>
+				<h2>To Be Continued</h2>
 				<p>
-					What we need to add is a <em>step #3.5</em> to our steps before.
-					(A step between <em>step #3</em> and <em>step #4</em>.)
-				</p>
-				<p>
-					Where this type of thing becomes more useful is is where you can go <em>deeper</em> into the network.
-					For example, where you can get graph data on your <em>friends of friends</em>.
-				</p>
-
-				<section>
-					<h3>Step #3.5: Construct And Call the MANY <code>/<em>&lt;facebook_uid&gt;</em>/friends</code> API URLs</h3>
-					<p>
-						If you recall back to <em>step #3</em> to <em>figure 6</em> we got a list of Facebook users.
-						In that list, we got an <code>id</code> and a <code>name</code>.
-					</p>
-					<p>
-						What we are interested in is the <code>id</code> for the construction of our (new) Facebook API URLs.
-					</p>
-					<p>
-						For our example in <em>figure 6</em>, because we have <em>5 friends</em> in our social network,
-						we need to construct <em>5 different URLs</em> and call them each (separately).
-						The URLs are:
-					</p>
-					<figure>
-<pre><code>
-https://graph.facebook.com/8004/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
-
-https://graph.facebook.com/1010104/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
-
-https://graph.facebook.com/1110021/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
-
-https://graph.facebook.com/1111178/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
-
-https://graph.facebook.com/179983422054014/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
-</code></pre>
-						<figcaption>
-							<strong>Figure 11.</strong>
-							Example URLs for getting friend of friends.
-							<strong>Note</strong> that these are very much like the URL in <em>figure 5</em>;
-							the the difference is that instead of having the path begin with <code>me</code>
-							it begins with the <code>id</code> we got from the list of friends in <em>step #3</em> and showed an example in <em>figure 6</em>.
-							(The value of the <code>access_token</code> will (potentially) be different for you.)
-						</figcaption>
-					</figure>
-					<p>
-						Of course, the number of URLs you have to construct and call will depends on how many friends are in <em>your</em> social network.
-					</p>
-					<p>
-						The output for these will look similar to what is in <em>figure 6</em>.
-					</p>
-				</section>
-				<section>
-					<h3>Skip This Step Too: A Program That Exports Your Facebook Friends <em>And</em> Friend Of Friends To GDF</h3>
-					<p>
-						<em>Just like before</em>, for those that don't want to program this (additional step) themselves (or can't program this themselves) I have included another <em>command line</em> PHP program that does all this for you.
-						It is called "<code>fb_socialnetwork_2.php</code>".
-					</p>
-					<p>
-						You run it from the command line with a command like:
-					</p>
-					<figure>
-<pre><code>
-php fb_socialnetwork_2.php --access_token=AxR7oXeAAcEoAe4eeW9zzB2Wb
-</code></pre>
-						<figcaption>
-							<strong>Figure 12.</strong>
-							An example of how the "<code>fb_socialnetwork_2.php</code>" PHP script is run from the command line to create a GDF file.
-							Running it this way will create a GDF file called "<code>fbsn_2.gdf</code>".
-							Note that this PHP script is <strong>NOT</strong> a meant to be run as (part of) a web-application;
-							this is a <em>command-line</em> PHP script, and it needs to be run as such.
-							<strong>NOTE</strong> that (the value for) your <em>access token</em> will be different.
-						</figcaption>
-					</figure>
-					<p>
-						And it will give you output like (that will be stored in the file "<code>fbsn_2.gdf</code>", unless you override it with the <code>--output=...</code> switch).
-						Its output looks like what is in <em>figure 8</em>, expect that it will (potentially) contain even more nodes and edges.
-						Especially that the new edges will (potentially) connect your friends to each other.
-					</p>
-#################
-				</section>
-				<section>
-					<h3>What This Looks Like</h3>
-					<p>
-						Let's see what this might look like:
-					</p>
-#################
-				</section>
-			</section>
-
-			<section>
-				<h2>Filtering Out A (Single) Friend List</h2>
-				<p>
-					With my Facebook social network, I have ####
+					Part 2 adds to what we covered here, but also exports a person's Friends of Friends to the GDF file, so that we can look at a more interesting graph.
 				</p>
 			</section>
 	</body>

@@ -146,6 +146,8 @@ figure {
 		padding-left: 1em;
 		padding-right: 1em;
 		border-radius: 5px;
+
+        border: 1px solid #eee8d5;
 	}
 
 /* ------- 

@@ -117,3 +117,33 @@ footer a {
 	color: #fff;
 	padding: 0.8em 0 0.8em 
 }
+
+/* ------- 
+Figures
+------- */ 
+
+figure {
+	border-top:    2px solid #e0e0e0;
+	border-bottom: 2px solid #e0e0e0;
+
+	margin-top:2.5em;
+	margin-bottom:3.5em;
+
+	padding-top:    2.5em;
+	padding-bottom: 3em;
+
+	border-radius: 15px;
+}
+	figcaption {
+		margin-top: 2em;
+	}
+
+	figure pre code {
+        display: block;
+		background-color: #002b36;
+		color: #268bd2;
+		padding-bottom: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		border-radius: 5px;
+	}

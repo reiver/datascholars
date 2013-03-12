@@ -109,6 +109,7 @@ header nav a { color: #909090 }
 header nav a:hover { text-decoration: underline }
 header nav li a { display: inline-block; padding: 0.4em 1.4em }
 
+article a { text-decoration: underline }
 article h1 a { text-decoration: none }
 article address a { text-decoration: none }
 

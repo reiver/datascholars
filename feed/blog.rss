@@ -6,16 +6,21 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 11 Mar 2013 07:32:53 -0800</lastBuildDate>
+		<lastBuildDate>Tue, 12 Mar 2013 07:14:33 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
 		<item>
+			<title>Private traits and attributes are predictable from digital records of human behavior (Michal Kosinskia, David Stillwell, and Thore Graepel)</title>
+			<link>http://datascholars.com/post/2013/03/12/facebook_likes_as_a_predictor/</link>
+			<pubDate>Tue, 12 Mar 2013 07:14:33 -0700</pubDate>
+		</item>
+		<item>
 			<title>New Data Science Meetup Group In Vancouver</title>
 			<link>http://datascholars.com/post/2013/03/11/data_science_meetup_vancouver/</link>
-			<pubDate>Mon, 11 Mar 2013 07:32:53 -0800</pubDate>
+			<pubDate>Mon, 11 Mar 2013 07:32:53 -0700</pubDate>
 		</item>
 		<item>
 			<title>Exporting Your Facebook Social Network To GDF: Part 1</title>

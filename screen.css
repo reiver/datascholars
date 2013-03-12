@@ -1,3 +1,17 @@
+/* Font Faces */
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Serif'), local('DroidSerif'), url(3/droidserif/droidserif_400_v3.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Droid Serif Bold'), local('DroidSerif-Bold'), url(3/droidserif/droidserif_700_v3.woff) format('woff');
+}
+
 /* Fonts */
 body { font: 100%/1.5 'Droid Serif', serif; font-weight: 400; }
 

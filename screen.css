@@ -147,3 +147,16 @@ figure {
 		padding-right: 1em;
 		border-radius: 5px;
 	}
+
+/* ------- 
+blockquote
+------- */ 
+
+blockquote {
+	border-left:  1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
+	padding-left:  1.3em;
+	padding-right: 1.3em;
+	margin-left: 0;
+}
+

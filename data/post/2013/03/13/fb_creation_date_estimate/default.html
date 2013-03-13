@@ -48,7 +48,7 @@ class AccountAge
 
 	function __construct()
 	{
-		$this->baseUrl = 'https://graph.facebook.com/';
+		$this-&gt;baseUrl = 'https://graph.facebook.com/';
 	}
 
 	/**
@@ -59,7 +59,7 @@ class AccountAge
 	 */
 	public function doFQLRequest($fql, $access_token)
 	{
-		$url = urlencode($this->baseUrl	. 'fql?q=' . $fql
+		$url = urlencode($this-&gt;baseUrl	. 'fql?q=' . $fql
 			. '&amp;access_token=' . $access_token);
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
@@ -86,21 +86,21 @@ class AccountAge
 	public function getAccountAge($access_token)
 	{
 		$date = new \DateTime('now');
-		$timestamp = $date->getTimestamp();
+		$timestamp = $date-&gt;getTimestamp();
 		echo "# Finding the oldest post may take several minutes to complete.\n";
 		echo "# Please wait ";
 		while (true){ // Loop until finding the oldest post
 			echo ".";
 			$fql = "SELECT created_time FROM stream WHERE source_id = me()"
-				. " AND created_time < " . $timestamp
+				. " AND created_time &lt; " . $timestamp
 				. " ORDER BY created_time ASC LIMIT 5000";
-			$result = $this->doFQLRequest($fql, $access_token, true);
+			$result = $this-&gt;doFQLRequest($fql, $access_token, true);
 			if (!isset($result[0]['created_time']))
 				break;
 			$timestamp = $result[0]['created_time'];
 		}
 		echo "\n";
-		$age = $date->getTimestamp() - $timestamp;
+		$age = $date-&gt;getTimestamp() - $timestamp;
 		return $age;
 	}
 
@@ -122,8 +122,8 @@ class AccountAge
 $p = new AccountAge();
 // You need an Access Token with a read_stream permission
 $access_token = 'AAACEdEose0cBAIH3WZBfYHpWNZAdFsPJLK1kcoQPvewTCctYX48AMrr51SFbmH1O88RyObOGRomGTiVgrd39kqOTGQoI1LrbkQ5IPWjAZDZD';
-$age = $p->getAccountAge($access_token);
-$p->printAccountAge($age);
+$age = $p-&gt;getAccountAge($access_token);
+$p-&gt;printAccountAge($age);
 </code></pre>
 	</body>
 </html>

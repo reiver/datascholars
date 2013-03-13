@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 12 Mar 2013 07:14:33 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 13 Mar 2013 06:47:52 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>How to Estimate the Facebook Account Creation Date</title>
+			<link>http://datascholars.com/post/2013/03/13/fb_creation_date_estimate/</link>
+			<pubDate>Tue, 13 Mar 2013 06:47:52 -0700</pubDate>
+		</item>
 		<item>
 			<title>Private traits and attributes are predictable from digital records of human behavior (Michal Kosinskia, David Stillwell, and Thore Graepel)</title>
 			<link>http://datascholars.com/post/2013/03/12/facebook_likes_as_a_predictor/</link>

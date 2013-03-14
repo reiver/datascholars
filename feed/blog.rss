@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 13 Mar 2013 06:47:52 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 14 Mar 2013 06:44:41 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Tag-Cloud Drawing: Algorithms for Cloud Visualization (Owen Kaser, Daniel Lemire)</title>
+			<link>http://datascholars.com/post/2013/03/14/tag-cloud_drawing/</link>
+			<pubDate>Tue, 14 Mar 2013 06:44:41 -0700</pubDate>
+		</item>
 		<item>
 			<title>How to Estimate the Facebook Account Creation Date</title>
 			<link>http://datascholars.com/post/2013/03/13/fb_creation_date_estimate/</link>

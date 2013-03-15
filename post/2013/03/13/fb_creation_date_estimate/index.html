@@ -110,8 +110,8 @@ class AccountAge
 	 */
 	public function doFQLRequest($fql, $access_token)
 	{
-		$url = urlencode($this-&gt;baseUrl	. 'fql?q=' . $fql
-			. '&amp;access_token=' . $access_token);
+		$url = $this-&gt;baseUrl	. 'fql?q=' . urlencode($fql)
+			. '&amp;access_token=' . $access_token;
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -145,7 +145,7 @@ class AccountAge
 			$fql = "SELECT created_time FROM stream WHERE source_id = me()"
 				. " AND created_time &lt; " . $timestamp
 				. " ORDER BY created_time ASC LIMIT 5000";
-			$result = $this-&gt;doFQLRequest($fql, $access_token, true);
+			$result = $this-&gt;doFQLRequest($fql, $access_token);
 			if (!isset($result[0]['created_time']))
 				break;
 			$timestamp = $result[0]['created_time'];
@@ -172,7 +172,7 @@ class AccountAge
 
 $p = new AccountAge();
 // You need an Access Token with a read_stream permission
-$access_token = 'AAACEdEose0cBAIH3WZBfYHpWNZAdFsPJLK1kcoQPvewTCctYX48AMrr51SFbmH1O88RyObOGRomGTiVgrd39kqOTGQoI1LrbkQ5IPWjAZDZD';
+$access_token = 'AAACEdEose0cBAOY7bB3A9m7s3U6hbuJvfECxuZBFRN6YjqPC2eZB5x8WrnK51Gl3WsdwYovmxdPZCKFyJKB5TuFhpxsDJpAZCe9y6eutyQZDZD';
 $age = $p-&gt;getAccountAge($access_token);
 $p-&gt;printAccountAge($age);
 </code></pre>

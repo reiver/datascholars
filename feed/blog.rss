@@ -6,26 +6,31 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 15 Mar 2013 07:38:12 -0700</lastBuildDate>
+		<lastBuildDate>Sun, 17 Mar 2013 15:21:14 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
 		<item>
+			<title>Forensic Analysis of Phone Call Networks (Salvatore Catanese, Emilio Ferrara, Giacomo Fiumara)</title>
+			<link>http://datascholars.com/post/2013/03/17/forensic_analysis_of_phone_call_networks/</link>
+			<pubDate>Sun, 17 Mar 2013 15:21:14 -0700</pubDate>
+		</item>
+		<item>
 			<title>Inferring Facebook Account Creation Date From Facebook User ID</title>
 			<link>http://datascholars.com/post/2013/03/15/inferring_fb_creation_date_from_uid/</link>
-			<pubDate>Tue, 15 Mar 2013 07:38:12 -0700</pubDate>
+			<pubDate>Fri, 15 Mar 2013 07:38:12 -0700</pubDate>
 		</item>
 		<item>
 			<title>Tag-Cloud Drawing: Algorithms for Cloud Visualization (Owen Kaser, Daniel Lemire)</title>
 			<link>http://datascholars.com/post/2013/03/14/tag-cloud_drawing/</link>
-			<pubDate>Tue, 14 Mar 2013 06:44:41 -0700</pubDate>
+			<pubDate>Thu, 14 Mar 2013 06:44:41 -0700</pubDate>
 		</item>
 		<item>
 			<title>How to Estimate the Facebook Account Creation Date</title>
 			<link>http://datascholars.com/post/2013/03/13/fb_creation_date_estimate/</link>
-			<pubDate>Tue, 13 Mar 2013 06:47:52 -0700</pubDate>
+			<pubDate>Wed, 13 Mar 2013 06:47:52 -0700</pubDate>
 		</item>
 		<item>
 			<title>Private traits and attributes are predictable from digital records of human behavior (Michal Kosinskia, David Stillwell, and Thore Graepel)</title>

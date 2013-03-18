@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Lookup Table for Inferring Facebook Account Creation Date From Facebook User ID</title>
+
+		<link rel="stylesheet" href="../../../../../3/normalize/normalize.css" />
+		<link rel="stylesheet" href="../../../../../screen.css" />
+		<link rel="alternate" href="/feed/blog.rss" title="DataScholars" type="application/rss+xml" />
+
+		<link rel="canonical" href="http://metadatascience.com/2013/03/14/lookup-table-for-inferring-facebook-account-creation-date-from-facebook-user-id/" />
+		<link rel="bookmark"  href="http://metadatascience.com/2013/03/14/lookup-table-for-inferring-facebook-account-creation-date-from-facebook-user-id/" />
+
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="http://datascholars.com/">DataScholars</a></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="../../../../../about.html">About</a>
+					</li>
+					<li>
+						<a href="../../../../../subscribe.html">Subscribe</a>
+					</li>
+					<li>
+						<a href="../../../../../sphere.html">Sphere</a>
+					</li>
+				</ul>
+			</nav>
+			<p class="blurb">
+				A blog about
+				<em>data science</em>,
+				<em>computer science</em>,
+				<em>machine learning</em>,
+				<em>artificial intelligence</em>,
+				<em>data mining</em>,
+				<em>analysis</em>,
+				and
+				<em>visualization</em>.
+			</p>
+		</header>
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-18T07:21:44-07:00">March 18, 2013</time>
+			</div>
+			<h1>Lookup Table for Inferring Facebook Account Creation Date From Facebook User ID</h1>
+			<address
+				 
+					class="reblogged"
+				 
+			>
+				 
+					<a rel="bookmark canonical" href="http://metadatascience.com/2013/03/14/lookup-table-for-inferring-facebook-account-creation-date-from-facebook-user-id/">cross-blogged</a>
+				 
+				by <a href="http://twitter.com/accesstoken">accesstoken</a>
+			</address>
+			<div>
+
+
+
+		<p>
+			In my <a href="http://metadatascience.com/2013/03/11/inferring-facebook-account-creation-date-from-facebook-user-id/">previous post</a>, I explained how we can estimate the account creation date of Facebook accounts that have a 15 digit UID without having to call the Facebook API and just based on the user’s Facebook UID.
+		</p>
+		<p>
+			Table below shows the correlation between Facebook UID and Facebook Account Creation Date for the sample set that I analysed.
+			The table is represented in <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> format as follows:
+		</p>
+		<p>
+			<em>Facebook UID, Account Creation Date(timestamp), Account Creation Date(date)</em>.
+		</p>
+		<p>
+			<strong>Note #1:</strong> To respect the users privacy I hided the last 5 digits of UIDs.
+				You may replace ‘x’ by ‘0’ and it should not cause any problem.
+		</p>
+		<p>
+			<strong>Note #2:</strong> For a more accurate result, this table should get updated.
+		</p>
+		<figure>
+<pre><code>
+1000053132xxxxx,1361330314,2013-02-19
+1000049732xxxxx,1357606484,2013-01-07
+1000047422xxxxx,1354021840,2012-11-27
+1000047355xxxxx,1353417806,2012-11-20
+1000046843xxxxx,1352662415,2012-11-11
+1000046015xxxxx,1350999158,2012-10-23
+1000035523xxxxx,1349467776,2012-10-05
+1000040785xxxxx,1343717040,2012-07-30
+1000041143xxxxx,1342928040,2012-07-21
+1000038945xxxxx,1338526722,2012-05-31
+1000036032xxxxx,1331873652,2012-03-15
+1000031133xxxxx,1320583505,2011-11-06
+1000031024xxxxx,1320464096,2011-11-04
+1000029834xxxxx,1318571069,2011-10-13
+1000029345xxxxx,1315974235,2011-09-13
+1000026042xxxxx,1309652553,2011-07-02
+1000023280xxxxx,1306728328,2011-05-29
+1000024582xxxxx,1304995827,2011-05-09
+1000023732xxxxx,1303537065,2011-04-22
+1000022413xxxxx,1302326877,2011-04-08
+1000022328xxxxx,1300810582,2011-03-22
+1000019352xxxxx,1295628516,2011-01-21
+1000014241xxxxx,1285972221,2010-10-01
+1000013861xxxxx,1281882953,2010-08-15
+1000014436xxxxx,1280116994,2010-07-25
+1000012117xxxxx,1276055448,2010-06-08
+1000010697xxxxx,1274090432,2010-05-17
+1000010425xxxxx,1272438522,2010-04-28
+1000008600xxxxx,1268201411,2010-03-09
+1000008113xxxxx,1267667333,2010-03-03
+1000006286xxxxx,1266618961,2010-02-19
+1000006189xxxxx,1263726284,2010-01-17
+1000006449xxxxx,1262406605,2010-01-01
+1000003298xxxxx,1261112448,2009-12-17
+1000005651xxxxx,1259793952,2009-12-02
+1000005426xxxxx,1259605238,2009-11-30
+1000005072xxxxx,1258400669,2009-11-16
+1000004668xxxxx,1257502719,2009-11-06
+1000002286xxxxx,1252567838,2009-09-10
+1000001160xxxxx,1250562107,2009-08-17
+1000001568xxxxx,1250382196,2009-08-15
+</code></pre>
+			<figcaption>
+				<strong>Figure 1.</strong>
+				Correlation between Facebook UID and Facebook Account Creation Date.
+				(<a rel="enclosure" href="../../../../../data/post/2013/03/18/inferring_fb_creation_date_from_uid_data/fbid_accountage.csv">download</a>)
+			</figcaption>
+		</figure>
+	
+
+<address class="vcard" itemscope="true" itemtype="http://schema.org/Person">
+	-- <a rel="author" class="fn n url" itemprop="name url" href="http://metadatascience.com/"><span class="given-name" itemprop="givenName">Massoud</span> <span class="family-name" itemprop="familyName">Seifi</span>, <span itemprop="honorificSuffix" class="honorific-suffix">Ph.D.</span></a>
+</address>
+
+
+			</div>
+			<div class="comments">
+
+    <div id="disqus_thread"></div>
+    	<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'datascholars'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+			</div>
+		</article>
+
+
+		<footer>
+			<a href="http://twitter.com/DataScholars"><img src="../../../../../data/post/2013/03/18/inferring_fb_creation_date_from_uid_data/../../../../../i/twitter.png" alit="twitter"></a>
+		</footer>
+
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'datascholars'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+
+	</body>
+</html>

@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 20 Mar 2013 07:30:51 -0700</lastBuildDate>
+		<lastBuildDate>Thu, 21 Mar 2013 07:21:45 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>We Love Open Data: Open Data from Government of Canada</title>
+			<link>http://datascholars.com/post/2013/03/21/open_data_government_of_canada/</link>
+			<pubDate>Thu, 21 Mar 2013 07:21:45 -0700</pubDate>
+		</item>
 		<item>
 			<title>Data Journalism Handbook</title>
 			<link>http://datascholars.com/post/2013/03/20/data_journalism_handbook/</link>

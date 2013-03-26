@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 25 Mar 2013 06:57:15 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 26 Mar 2013 07:47:10 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Data Science For Software Engineers</title>
+			<link>http://datascholars.com/post/2013/03/26/data_science_for_software_engineers/</link>
+			<pubDate>Tue, 26 Mar 2013 07:47:10 -0700</pubDate>
+		</item>
 		<item>
 			<title>Data Science And Business Intelligence Not The Same Thing</title>
 			<link>http://datascholars.com/post/2013/03/25/data_science_not_bi/</link>

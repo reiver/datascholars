@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 26 Mar 2013 07:47:10 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 27 Mar 2013 07:32:48 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>New Berkeley Computational Social Science Lab</title>
+			<link>http://datascholars.com/post/2013/03/27/berkeley_computational_social_science/</link>
+			<pubDate>Wed, 27 Mar 2013 07:32:48 -0700</pubDate>
+		</item>
 		<item>
 			<title>Data Science For Software Engineers</title>
 			<link>http://datascholars.com/post/2013/03/26/data_science_for_software_engineers/</link>

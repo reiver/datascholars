@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 27 Mar 2013 07:32:48 -0700</lastBuildDate>
+		<lastBuildDate>Thu, 28 Mar 2013 07:48:21 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Unsupervised Sentiment Analysis with Emotional Signals (Xia Hu, Jiliang Tang, Huiji Gao, Huan Liu)</title>
+			<link>http://datascholars.com/post/2013/03/28/sentiment_analysis/</link>
+			<pubDate>Thu, 28 Mar 2013 07:48:21 -0700</pubDate>
+		</item>
 		<item>
 			<title>New Berkeley Computational Social Science Lab</title>
 			<link>http://datascholars.com/post/2013/03/27/berkeley_computational_social_science/</link>

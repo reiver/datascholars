@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DataScholars - Data Science, Computer Science, Machine Learning, Artificial Intelligence, Computational Social Science, Data Mining, Analytics, Visualization</title>
+		<link rel="stylesheet" href="../../../3/normalize/normalize.css" />
+		<link rel="stylesheet" href="../../../screen.css" />
+		<link rel="alternate" href="/feed/blog.rss" title="DataScholars" type="application/rss+xml" />
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="http://datascholars.com/">DataScholars</a></h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="../../../about.html">About</a>
+					</li>
+					<li>
+						<a href="../../../subscribe.html">Subscribe</a>
+					</li>
+					<li>
+						<a href="../../../sphere.html">Sphere</a>
+					</li>
+				</ul>
+			</nav>
+			<p class="blurb">
+				A blog about
+				<em>data science</em>,
+				<em>computer science</em>,
+				<em>machine learning</em>,
+				<em>artificial intelligence</em>,
+				<em>computational social science</em>,
+				<em>data mining</em>,
+				<em>analysis</em>,
+				and
+				<em>visualization</em>.
+			</p>
+		</header>
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-10T23:49:40-08:00">March 10, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/10/facebook_gdf/">Exporting Your Facebook Social Network To GDF: Part 1</a></h1>
+			<address
+				 
+			>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+				<a href="http:/facebook.com/">Facebook</a> is a popular online social network.
+				It offers researchers interested in <em>social network analysis</em> a (potentially) large data set to work with.
+			</p>
+			<p>
+				But graph visualization software, such as <a href="http://gephi.org/">Gephi</a> and <a href="http://graphexploration.cond.org/">Guess</a>, do <strong>not</strong> have a (built-in) way of directly accessing Facebook data.
+			</p>
+			<p>
+				Finding a way to export your Facebook data into a file format, such as <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>, is a necesary intermediate step, before you can <em>see</em> what it looks like.
+			</p>
+
+			<section>
+				<h2>Export Your Facebook Friends To GDF</h2>
+				<p>
+					A little knowledge of the <a href="https://developers.facebook.com/docs/reference/api/">Facebook Graph API</a> makes the task of <em>exporting</em> your <em>Facebook friends</em> to a format like GDF relatively easy.
+				</p>
+				<p>
+					With said knowledge, the exporting process becomes a 4-step process:<br/>
+					#1 get a Facebook access token,<br/>
+					#2 call the <code>/me</code> API end point,<br/>
+					#3 call the <code>/me/friends</code> API end point and<br/>
+					#4 transform the JSON results that <em>step #2</em> and <em>step #3</em> gave us into <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>.
+				</p>
+
+				<section>
+					<h3>Step #1: Get a Facebook Access Token</h3>
+					<p>
+						If you are doing this for <em>your own</em> Facebook data (rather than <em>random users</em> off of the Internet) then
+						<em>Step #1</em> can be accomplished by just going Facebook's <a href="https://developers.facebook.com/tools/explorer">Graph API Explorer</a>
+						and then grabbing the Facebook <em>access token</em> from that page and using it to construct the URLs in <em>step #2</em> and <em>step #3</em>.
+					</p>
+					<p>
+						Alternatively, if you are doing this for random people off of the Internet, you will likely have to learn how to create a full-fledged web-application with Facebook support.
+						That's out of the scope of this article.
+						Here I want to focus on how to export Facebook social network data into GDF, so you can view it (and manipulate it) in graph visualization software, such as
+						Gephi and Guess.
+					</p>
+				</section>
+				<section>
+					<h3>Step #2: Construct and Call the <code>/me</code> Facebook API URL</h3>
+					<p>
+						Before you get the list of friends, you need to get data on the person for whom the <em>access token</em> is for.
+						If this is <em>your</em> Facebook <em>access token</em>, then this will be <em>your</em> data we are getting.
+					</p>
+					<p>
+						We need to get this data because this person needs to be in the graph also!
+						After all, these are this person's Facebook friends, and each friend will have an edge (in the graph) connecting to this person!
+					</p>
+					<p>
+						So, once you have the Facebook <em>access token</em> (described in <em>step #1</em>) you can construct the <code>/me</code> Facebook API URL.
+					</p>
+					<p>
+						As a URL, this looks something like:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me?access_token=Accc7DWxsEF9T22ccd14SQJx9
+</code></pre>
+						<figcaption>
+							<strong>Figure 1.</strong>
+							An example Facebook Graph API URL, used to get a Facebook user's basic info.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that your API URL will be slightly different than what appears in <em>figure 1</em> because your Facebook <em>access token</em> will be different.
+					</p>
+					<p>
+						So, if your Facebook <em>access token</em> is "<code>uxRAAcEose5BPWxzzRucb7A2</code>", then your API URL will be:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
+</code></pre>
+						<figcaption>
+							<strong>Figure 2.</strong>
+							Another example Facebook Graph API URL, used to get a Facebook user's basic info.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that the API URLs in <em>figure 1</em> and <em>figure 2</em> are different.
+					</p>
+					<p>
+						<strong>NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
+						If this happens to you, don't worry.
+						Just go get another one.
+					</p>
+					<p>
+						When you call the <code>/me</code> Facebook API URL (shown in <em>figure 1</em> and <em>figure 2</em>) you will get output that looks something like:
+					</p>
+					<figure>
+<pre><code>
+{
+    "id": "100000593854809",
+    "name": "Sheldon Lee Cooper",
+    "first_name": "Sheldon",
+    "middle_name": "Lee",
+    "last_name": "Cooper",
+    "link": "https://www.facebook.com/sheldonleecooper",
+    "username": "sheldonleecooper",
+    "locale": "en_US",
+    "updated_time": "2011-03-22T18:34:27+0000"
+}
+</code></pre>
+						<figcaption>
+							<strong>Figure 3.</strong>
+							Example JSON output from the Facebook Graph API URL, used to get a Facebook user's basic info, shown in <em>figure 1</em> and <em>figure 2</em>.
+							(The data in the JSON you receive will be different, but the format will be the same, or very similar.)
+						</figcaption>
+					</figure>
+					<p>
+						Although in different contexts, different parts of the JSON output (in <em>figure 3</em>) will be interesting.
+						For our purposes, we only care about 2 things here: <code>id</code> and <code>name</code>.
+						(Which are "<code>100000593854809</code>" and "<code>Sheldon Lee Cooper</code>" respectively.)
+					</p>
+				</section>
+				<section>
+					<h3>Step #3: Construct and Call the <code>/me/friends</code> Facebook API URL</h3>
+					<p>
+						Once you have the Facebook <em>access token</em> (described in <em>step #1</em>) you can construct the <code>/me/friends</code> Facebook API URL.
+					</p>
+					<p>
+						As a URL, this looks something like:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=A7AFD4209F097CA23A2B23AA
+</code></pre>
+						<figcaption>
+							<strong>Figure 4.</strong>
+							An example Facebook Graph API URL, used to get a Facebook user's list of friends.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that your API URL will be slightly different than what appears in <em>figure 4</em> because your Faecbook <em>access token</em> will be different.
+					</p>
+					<p>
+						So, if your Facebook <em>access token</em> is "<code>uxRAAcEose5BPWxzzRucb7A2</code>", then your API URL will be:
+					</p>
+					<figure>
+<pre><code>
+https://graph.facebook.com/me/friends?access_token=uxRAAcEose5BPWxzzRucb7A2
+</code></pre>
+						<figcaption>
+							<strong>Figure 5.</strong>
+							Another example Facebook Graph API URL, used to get a Facebook user's list of friends.
+							(The value of the <code>access_token</code> will (potentially) be different for you.)
+						</figcaption>
+					</figure>
+					<p>
+						Note that the API URLs in <em>figure 4</em> and <em>figure 5</em> are different.
+					</p>
+					<p>
+						<strong>AGAIN NOTE</strong>: Facebook <em>access tokens</em> expire, and will stop working after a while.
+						If this happens to you, don't worry.
+						Just go get another one.
+					</p>
+					<p>
+						When you call the <code>/me/friends</code> Facebook API URL (shown in <em>figure 4</em> and <em>figure 5</em>) you will get output that looks something like:
+					</p>
+					<figure>
+<pre><code>
+{
+    "data": [
+        {
+            "name": "Joe Blow",
+            "id": "8004"
+        },
+        {
+            "name": "Jane Doe",
+            "id": "1010104"
+        },
+        {
+            "name": "Philip J. Fry",
+            "id": "1110021"
+        },
+        {
+            "name": "John Doe",
+            "id": "1111178"
+        },
+        {
+            "name": "Homer Jay Simpson",
+            "id": "179983422054014"
+        }
+    ],
+    "paging": {
+        "next": "https://graph.facebook.com/123/friends?access_token=uxRAAcEose5BPWxzzRucb7A2&amp;limit=5&amp;offset=5&amp;__after_id=179983422054014"
+    }
+}
+</code></pre>
+						<figcaption>
+							<strong>Figure 6.</strong>
+							Example JSON output from the Facebook Graph API URL, used to get a Facebook user's list of friends shown in <em>figure 4</em> and <em>figure 5</em>.
+							(The data in the JSON you receive will be different, but the format will be the same.)
+							Note that the result from this API call is (potentially) paginated;
+							and you may need to make more than one API call, to get <em>all</em> the friends,
+							by calling the URL (in the JSON) at <code>data.paging</code>.
+						</figcaption>
+					</figure>
+				</section>
+				<section>
+					<h3>Step #3: Create a GDF File</h3>
+					<p>
+						So, we now have JSON output (from <em>step #2</em> and <em>step #3</em>).
+						But we can't stop there because the graph visualization software will NOT understand this (JSON) data.
+						We have to turn this data into something graph visualization software understand.
+					</p>
+					<p>
+						We have to turn this data into <a href="http://datascholars.com/post/2013/03/09/gdf/">GDF</a>.
+					</p>
+					<p>
+						For someone with basic programming skills, this should be a straight forward task.
+					</p>
+				</section>
+				<section>
+					<h3>Skip These Steps: A Program That Exports Your Facebook Friends To GDF</h3>
+					<p>
+						For those that don't want to program this themselves (or can't program this themselves) I have included a <em>command line</em> PHP program that does all this for you.
+						It is called "<code>fb_socialnetwork_1.php</code>".
+					</p>
+					<p>
+						You run it from the command line with a command like:
+					</p>
+					<figure>
+<pre><code>
+php fb_socialnetwork_1.php --access_token=AxR7oXeAAcEoAe4eeW9zzB2Wb
+</code></pre>
+						<figcaption>
+							<strong>Figure 7.</strong>
+							An example of how the "<code>fb_socialnetwork_1.php</code>" PHP script is run from the command line to create a GDF file.
+							Running it this way will create a GDF file called "<code>fbsn_1.gdf</code>".
+							Note that this PHP script is <strong>NOT</strong> a meant to be run as (part of) a web-application;
+							this is a <em>command-line</em> PHP script, and it needs to be run as such.
+							<strong>NOTE</strong> that (the value for) your <em>access token</em> will be different.
+						</figcaption>
+					</figure>
+					<p>
+						And it will give you output like (that will be stored in the file "<code>fbsn_1.gdf</code>", unless you override it with the <code>--output=...</code> switch).
+					</p>
+					<p>
+						The output from this will look something like this:
+					</p>
+					<figure>
+<pre><code>
+nodedef&gt; name,label
+n100000593854809,"Sheldon Lee Cooper"
+n8004,"Joe Blow"
+n1010104,"Jane Doe"
+n1110021,"Philip J. Fry"
+n1111178,"John Doe"
+n179983422054014,"Homer Jay Simpson"
+edgedef&gt; node1,node2,weight
+n100000593854809,n8004
+n100000593854809,n1010104
+n100000593854809,n1110021
+n100000593854809,n1111178
+n100000593854809,n179983422054014
+</code></pre>
+						<figcaption>
+							<strong>Figure 8.</strong>
+							The (hypothetical) GDF file created from the JSON results in <em>figure 3</em> and <em>figure 6</em>.
+							Note that the only edges in this graph are edges connecting
+							<code>"Sheldon Lee Cooper"</code> (<code>n100000593854809</code>) to everyone else.
+							(<a rel="enclosure" href="../../../data/post/2013/03/10/facebook_gdf/figure8.gdf">download</a>)
+						</figcaption>
+					</figure>
+					<p>
+						You can <a rel="enclosure" href="../../../data/post/2013/03/10/facebook_gdf/fb_socialnetwork_1.php.gz">download fb_socialnetwork_1.php here</a>.
+						(This download is a GZip file, so you will need to <code>gunzip</code> it first, to extract the "<code>fb_socialnetwork_1.php</code>" file.)
+					</p>
+				</section>
+				<section>
+					<h3>What It Looks Like</h3>
+					<p>
+						Let's see what the GDF file in <em>figure 8</em> looks like:
+					</p>
+					<figure>
+						<img src="../../../data/post/2013/03/10/facebook_gdf/figure9.png"/>
+						<figcaption>
+							<strong>Figure 9.</strong>
+							Screenshot of the GDF file shown in <em>figure 8</em> loaded into Gephi.
+						</figcaption>
+					</figure>
+					<p>
+						<strong>This is actually a <em>very</em> UNINTERESTING graph!</strong>
+						We gain no insight from viewing the data in this way.
+					</p>
+					<p>
+						To make this more interesting, not only do we need the <em>list of friends</em> (as we have already gotten) <strong>but</strong> we also need our friends' friends.
+					</p>
+					<p><strong>
+						We need to see how our friends are connected to each other.
+						We need to see if there are <em>communities</em> (in the graph theory sense of the word) amoung our friends.
+					</strong></p>
+					<p>
+						But that is for the <em>part 2 article</em>; this is the <em>part 1 article</em>.
+						Before we can run, we need to walk; and this article shows you the basics.
+					</p>
+					<p>
+						To show you a <em>real</em> version of this graph, here is the graph of <em>my</em> personal Facebook social network:
+					</p>
+					<figure>
+						<img src="../../../data/post/2013/03/10/facebook_gdf/figure10.png"/>
+						<figcaption>
+							<strong>Figure 10.</strong>
+							Screenshot of the GDF file of <em>my</em> Facebook social network exported using "<code>fb_socialnetwork_1.php</code>" and loaded into Gephi.
+							The node right at the center represents <em>me</em>.
+						</figcaption>
+					</figure>
+					<p>
+						(Obviously there are <strong>a lot</strong> of friends in <em>my</em> Facebook social network export.
+						But this is <em>still</em> a <em>very</em> uninteresting graph; even if there are more nodes.)
+					</p>
+				</section>
+			</section>
+			<section>
+				<h2>To Be Continued</h2>
+				<p>
+					Part 2 adds to what we covered here, but also exports a person's Friends of Friends to the GDF file, so that we can look at a more interesting graph.
+				</p>
+			</section>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-09T12:14:09-08:00">March 9, 2013</time>
+			</div>
+			<h1><a href="http://datascholars.com/post/2013/03/09/gdf/">GDF: A CSV Like Format For Graphs</a></h1>
+			<address
+				 
+					class="reblogged"
+				 
+			>
+				 
+					<a rel="bookmark canonical" href="http://changelog.ca/log/2013/03/09/gdf">cross-blogged</a>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+					Sometimes the data you are dealing with is a <em>graph</em>.
+			</p>
+			<p>
+					Before you even start considering how you will view your graph data
+					(such as by using <a href="http://gephi.org/">Gephi</a> or <a href="http://graphexploration.cond.org/">Guess</a>, etc)
+					you need to (serialize and) store you graph into some kind of <em>file format</em>.
+			</p>
+			<p>
+					If we were dealing with tabular data (instead of graph data) we would probably use a <abbr title="comma separated values">CSV</abbr> file, if we wanted to keep things simple.
+					<strong>But is there anything like a <abbr title="comma separated values">CSV</abbr> file format for graphs?</strong>
+			</p>
+			<p>
+					The answer is <em>yes</em>!
+					The answer is: <strong>GDF</strong>.
+			</p>
+
+			<section>
+				<h2><abbr title="comma separated values">CSV</abbr> Format</h2>
+				<p>
+					The <em><abbr title="comma separated values">CSV</abbr></em> format is a very simple format for storing spreadsheets.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+"Name","DOB","Sex"
+"Joe Blow","1922-11-15","male"
+"Jane Doe","1980-02-14","female"
+"Homer Jay Simpson","1955-05-12","male"
+"Philip J. Fry","1974-08-09","male"
+</code></pre>
+					<figcaption>
+						<strong>Figure 1.</strong>
+						An example <abbr title="comma separated values">CSV</abbr> file.
+						This <abbr title="comma separated values">CSV</abbr> file has 3 columns:
+						<em>name</em>,
+						<em><abbr title="date of birth">DOB</abbr></em> and
+						<em>sex</em>.
+						Also, this <abbr title="comma separated values">CSV</abbr> file has 4 rows.
+						(<a rel="enclosure" href="../../../data/post/2013/03/09/gdf/figure1.csv">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see it is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					All the major spreadsheet software supports it.
+					And software that exports (to a spreadsheet file or "to Excel") tend to export to <abbr title="comma separated values">CSV</abbr>.
+				</p>
+				<p>
+					As far as tabular data is concerned, <abbr title="comma separated values">CSV</abbr> is ubiquitous.
+				</p>
+				<p>
+					In a spreadsheet software package, that example <abbr title="comma separated values">CSV</abbr> file in <em>figure 1</em> might look something like this:
+				</p>
+				<figure>
+					<img src="../../../data/post/2013/03/09/gdf/figure2.png"/>
+					<figcaption>
+						<strong>Figure 2.</strong>
+						Screenshot of the <abbr title="comma separated values">CSV</abbr> shown in <em>figure 1</em> loaded into
+						LibreOffice Calc.
+					</figcaption>
+				</figure>
+			</section>
+
+
+			<section>
+				<h2>GDF Format</h2>
+				<p>
+					But <abbr title="comma separated values">CSV</abbr> is for tabular-type data.
+					<strong>Is there something as simple for graph-type data?</strong>
+				</p>
+				<p>
+					The answer is <em>yes</em>!
+				</p>
+				<p>
+					That is what <strong>GDF</strong> is.
+				</p>
+				<p>
+					The <em>GDF</em> format is a very simple format for storing <em>graphs</em>.
+					It looks like this:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 3.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>a</em>,
+						<em>b</em>,
+						<em>c</em>,
+						<em>d</em> and
+						<em>e</em>.
+						Also, this GDF file has 4 edges.
+						(<a rel="enclosure" href="../../../data/post/2013/03/09/gdf/figure3.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					As you can see this too is a very simple <em>text-based</em> format that is very easy for someone with basic programming skills to generate.
+				</p>
+				<p>
+					It is also very well supported, in various software.
+					(Both Gephi and Guess support it.)
+				</p>
+				<p>
+					In a graph visualization software, it might look something like this:
+				</p>
+				<figure>
+					<img src="../../../data/post/2013/03/09/gdf/figure4.png"/>
+					<figcaption>
+						<strong>Figure 4.</strong>
+						Screenshot of the GDF file shown in <em>figure 3</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+				<p>
+					Here are some (more) complex <em>GDF</em> files, just to give you a sense of what <em>GDF</em> files can look like....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+cherry
+c
+n235
+"Joe Blow"
+"a,b,c"
+edgedef&gt; node1,node2
+cherry,c
+n235,c
+c,"Joe Blow"
+"Jow Blow","a,b,c"
+"a,b,c",c
+</code></pre>
+					<figcaption>
+						<strong>Figure 5.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>cherry</em>,
+						<em>c</em>,
+						<em>n235</em>,
+						<em>"Joe Blow"</em> and
+						<em>"a,b,c"</em>.
+						Also, this GDF file has 5 edges.
+					</figcaption>
+				</figure>
+				<p>
+					And....
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+me,"Joe Blow"
+friend_1,"Jane Doe"
+friend_2,Homer Jay Simpson"
+friend_3,"Philip J. Fry"
+friend_4,"Sheldon Lee Cooper"
+edgedef&gt; node1,node2,weight
+me,friend_1,1.1
+me,friend_2,7.4
+me,friend_3,100.0003
+me,friend_4,3.14159265358979323846264338327950
+friend_1,friend_2,33.3
+friend_1,friend_3,0.000001
+friend_2,friend_3,12.345
+</code></pre>
+					<figcaption>
+						<strong>Figure 6.</strong>
+						An example GDF file.
+						This GDF file has 5 nodes:
+						<em>me</em>,
+						<em>friend_1</em>,
+						<em>friend_2</em>,
+						<em>friend_3</em> and
+						<em>friend_4</em>.
+						Also, this GDF file has 7 edges.
+						This GDF file also makes use of the built-in node <code>label</code> and <code>weight</code> columns, in the <em>node</em> and <em>edge</em> sections, respectively.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Two Sections To A GDF File Format</h2>
+				<p>
+					You probably already noticed that a <em>GDF</em> file has 2 section:
+					a <em>node-section</em> and an <em>edge-section</em>.
+				</p>
+				<p>
+					If we consider the <em>GDF</em> files in <em>figure 3</em>, the <em>node-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name
+a
+b
+c
+d
+e
+</code></pre>
+					<figcaption>
+						<strong>Figure 7.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the nodes in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					And the <em>edge-section</em> is:
+				</p>
+				<figure>
+<pre><code>
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 8.</strong>
+						<em>Part</em> of the GDF file from <em>figure 3</em>.
+						This part of the GDF file lists the edges in the graph.
+					</figcaption>
+				</figure>
+				<p>
+					If you take what is in <em>figure 7</em> and <em>figure 8</em> and combine them (to get what you have in <em>figure 3</em>) you have a complete <em>GDF</em> file.
+				</p>
+			</section>
+
+			<section>
+				<h2>Node Labels</h2>
+				<p>
+					Nodes can be given a label.
+					(Labels are human-readable text.)
+				</p>
+				<p>
+					You do this in the <em>node-section</em> with something like:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef&gt; node1,node2
+a,b
+b,c
+b,d
+d,e
+</code></pre>
+					<figcaption>
+						<strong>Figure 9.</strong>
+						An example GDF file, with labels on the nodes.
+						(<a rel="enclosure" href="../../../data/post/2013/03/09/gdf/figure9.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					In a graph visualization software, it might look something like this: 
+				</p>
+				<figure>
+					<img src="../../../data/post/2013/03/09/gdf/figure10.png"/>
+					<figcaption>
+						<strong>Figure 10.</strong>
+						Screenshot of the GDF file shown in <em>figure 9</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+			</section>
+
+			<section>
+				<h2>Edge Weights</h2>
+				<p>
+					Weights can be given to edges.
+					(These are <em>weights</em> in the <em>graph theory</em> sense of the word.)
+				</p>
+				<p>
+					Building on what we have in <em>figure 9</em>, an example of this is:
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+a,"Apple"
+b,"Banana"
+c,"Cherry"
+d,"Did it!"
+e,"Ed 209"
+edgedef&gt; node1,node2,weight
+a,b,2
+b,c,30
+b,d,0.4
+d,e,200
+</code></pre>
+					<figcaption>
+						<strong>Figure 11.</strong>
+						An example GDF file, with <em>weights</em> on the nodes.
+						(<a rel="enclosure" href="../../../data/post/2013/03/09/gdf/figure11.gdf">download</a>)
+					</figcaption>
+				</figure>
+				<p>
+					In a graph visualization software, the GDF filei in <em>figure 11</em> might look something like:
+				</p>
+				<figure>
+					<img src="../../../data/post/2013/03/09/gdf/figure12.png"/>
+					<figcaption>
+						<strong>Figure 12.</strong>
+						Screenshot of the GDF file shown in <em>figure 11</em> loaded into
+						Gephi.
+					</figcaption>
+				</figure>
+				<p>
+					Note that the graph visualization software, used to create <em>figure 12</em>, represented the <em>edge weights</em> by the <em>thickness</em> and the <em>length</em> of the edges.
+				</p>
+			</section>
+
+			<section>
+				<h2>That's All Folks</h2>
+				<p>
+					And that is really the important stuff when it comes to <em>GDF</em> files.
+				</p>
+				<p>
+					There are some other capabilities, but for most your needs this is enough to know.
+				</p>
+				<p>
+					One thing to keep in mind though: make sure to start the node names with a letter.
+					(Else, put the node name into a quoted string.)
+				</p>
+				<p>
+					And <abbr title="by the way">BTW</abbr>. this is what my generated GDF files tend to look like (although usually much much larger):
+				</p>
+				<figure>
+<pre><code>
+nodedef&gt; name,label
+n11157,"James Wilson"
+n12008,"Fred Olson"
+n12009,"John Williams"
+n12407,"Natalie McDonald"
+n14773,"Gwen Nelson"
+edgedef&gt; node1,node2,weight
+n11157,n12008
+n12008,n12009
+n12008,n12407
+n12407,n14773
+</code></pre>
+					<figcaption>
+						<strong>Figure 13.</strong>
+						An example GDF file, more typical of what I generate.
+					</figcaption>
+				</figure>
+			</section>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-07T07:23:41-08:00">March 7, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/07/maximizing_friending_acceptance/">Maximizing Acceptance Probability for Active Friending in On-Line Social Networks (De-Nian Yang, Hui-Ju Hung, Wang-Chien Lee, Wei Chen)</a></h1>
+			<address
+				 
+			>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<blockquote cite="http://arxiv.org/abs/1302.6109">
+				<p>
+					Friending recommendation has successfully contributed to the explosive growth of on-line social networks. Most friending recommendation services today aim to support passive friending, where a user passively selects friending targets from the recommended candidates. In this paper, we advocate recommendation support for active friending, where a user actively specifies a friending target. To the best of our knowledge, a recommendation designed to provide guidance for a user to systematically approach his friending target, has not been explored in existing on-line social networking services. To maximize the probability that the friending target would accept an invitation from the user, we formulate a new optimization problem, namely, <em>Acceptance Probability Maximization (APM)</em>, and develop a polynomial time algorithm, called <em>Selective Invitation with Tree and In-Node Aggregation (SITINA)</em>, to find the optimal solution. We implement an active friending service with SITINA in Facebook to validate our idea. Our user study and experimental results manifest that SITINA outperforms manual selection and the baseline approach in solution quality efficiently
+				</p>
+			</blockquote>
+			<p>
+				<a href="http://arxiv.org/abs/1302.7025">arXiv:1302.7025</a> [cs.SI]
+			</p>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-06T07:39:04-08:00">March 6, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/06/social_resilience_in_online_communities/">Social Resilience in Online Communities: The Autopsy of Friendster (David Garcia, Pavlin Mavrodiev, Frank Schweitzer)</a></h1>
+			<address
+				 
+			>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<blockquote cite="http://arxiv.org/abs/1302.6109">
+				<p>
+					We empirically analyze five online communities: Friendster, Livejournal, Facebook, Orkut, Myspace, to identify causes for the decline of social networks. We define social resilience as the ability of a community to withstand changes. We do not argue about the cause of such changes, but concentrate on their impact. Changes may cause users to leave, which may trigger further leaves of others who lost connection to their friends. This may lead to cascades of users leaving. A social network is said to be resilient if the size of such cascades can be limited. To quantify resilience, we use the k-core analysis, to identify subsets of the network in which all users have at least k friends. These connections generate benefits (b) for each user, which have to outweigh the costs (c) of being a member of the network. If this difference is not positive, users leave. After all cascades, the remaining network is the k-core of the original network determined by the cost-to-benefit c/b ratio. By analysing the cumulative distribution of k-cores we are able to calculate the number of users remaining in each community. This allows us to infer the impact of the c/b ratio on the resilience of these online communities. We find that the different online communities have different k-core distributions. Consequently, similar changes in the c/b ratio have a different impact on the amount of active users. As a case study, we focus on the evolution of Friendster. We identify time periods when new users entering the network observed an insufficient c/b ratio. This measure can be seen as a precursor of the later collapse of the community. Our analysis can be applied to estimate the impact of changes in the user interface, which may temporarily increase the c/b ratio, thus posing a threat for the community to shrink, or even to collapse. 
+				</p>
+			</blockquote>
+			<p>
+				<a href="http://arxiv.org/abs/1302.6109">arXiv:1302.6109</a> [cs.SI]
+			</p>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-05T07:11:11-08:00">March 5, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/05/text_analysis/">Brendan O'Connor: How to Get Started with Text Analysis</a></h1>
+			<address
+				 
+			>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+				Some advice from <a href="http://brenocon.com/">Brendan O'Connor</a> (<a href="http://twitter.com/brendan642">@brendan642</a>)
+				on how to get started with <em>text analysis</em>:
+			</p>
+			<blockquote cite="https://twitter.com/brendan642/status/307930208432947200">
+				<p>
+					Some political scientists were asking how to get started with text analysis;
+				</p>
+			</blockquote>
+			<blockquote cite="https://twitter.com/brendan642/status/307930557726203904">
+				<p>
+					[T]ry starting with Grimmer &amp; Stewart's review
+					<a href="http://www.stanford.edu/~jgrimmer/tad2.pdf">http://www.stanford.edu/~jgrimmer/tad2.pdf</a>
+					and @<a href="http://twitter.com/jacobeisenstein">jacobeisenstein</a>'s reading list
+					<a href="http://gtnlp.wordpress.com/readinglist/">http://gtnlp.wordpress.com/readinglist/</a>
+				</p>
+			</blockquote>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-04T10:25:28-08:00">March 4, 2013</time>
+			</div>
+			<h1><a href="http://datascholars.com/post/2013/03/04/vancouver_data_science_talk/">Data Science Talk in Vancouver (March 2013)</a></h1>
+			<address>
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+		<p>
+			For those of us in Vancouver, there is a <em>data science</em> talk on <date datetime="2013-03-27">Wednesday March 27th</date>.
+			The talk is with the <a href="http://www.meetup.com/MachineLearning/">Machine Learning Group</a> and will be given by <a href="http://donturn.com/">Don Turnbull</a> (<a href="https://twitter.com/donturn">@donturn</a>).
+		</p>
+		<p>
+			If you are in the area, be sure to make it.
+		</p>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-04T07:41:15-08:00">March 4, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/04/vancouver_open_data/">We Love Open Data: Vancouver Open Data</a></h1>
+			<address>
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+			<p>
+					Data scientists are often interested in getting their hands on (suprise, suprise) <em>data</em>.
+					It is the "currency" of their vocation.
+					Sometimes they have to go to great lengths to gather the data set themselves.
+					And sometimes people will "give" it to them.
+			</p>
+			<p>
+				The Vancouver city government has done just that.
+			</p>
+			<p>
+				Meet <a href="http://vancouver.ca/data">Vancouver Open Data</a>.
+				(They are also on Twitter: <a href="https://twitter.com/VanOpenData">@VanOpenData</a>.)
+			</p>
+			<p>
+				There is some interesting stuff in there.
+				Things such as data on crime, election results, voting zones, property taxes, rapid transit, schools, trees, homeless shelter locations, etc etc.
+				But that's just what caught my eye.
+			</p>
+			<p>
+				Explore the data sets they offer yourself.
+			</p>
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-03T17:38:17-08:00">March 3, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/03/twitter_gender/">Predicting Gender On Twitter</a></h1>
+			<address
+				
+					class="reblogged"
+
+			>
+
+                    <a rel="bookmark canonical" href="http://changelog.ca/log/2013/03/03/twitter_gender">cross-blogged</a>
+
+                by <a href="http://twitter.com/reiver">reiver</a>
+            </address>
+			<div>
+
+
+
+			<p>
+				Can you use <em>machine learning</em> and <em>statistics</em> to predict the gender of someone on Twitter?
+			</p>
+
+			<section>
+				<h2>Male or Female?</h2>
+				<p>
+					If you have spent any kind of time online, then you have probably heard of the various (online) <em>social networks</em> out there.
+					Things such as <em>Facebook</em>, <em>Orkut</em>, <em>VK</em> (popular in Russia), <em>Mixi</em> (popular in Japan) and <em>Twitter</em>.
+				</p>
+				<p>
+					Many of these social network require you to tell them whether you are a <em>male</em> or <em>female</em>.
+					(To some, this information is invaluable.)
+				</p>
+				<p>
+					However, Twitter doesn't
+				</p>
+			</section>
+
+			<section>
+				<h2>Twitter</h2>
+				<p>
+					Twitter in particular, is an interesting social network.
+					Both from the point of view of someone using it.
+					And from the point of view of someone doing research.
+				</p>
+				<p>
+					<a href="http://twitter.com">Twitter</a> has made it easy for people to sign up.
+					Some websites want to know all your (deepest darkest) details before they let you sign up.
+					Twitter doesn't.
+					All a person has to provide to Twitter to sign up is a <em>name</em> and <em>e-mail address</em>.
+					That's it.
+				</p>
+				<figure>
+					<img src="../../../data/post/2013/03/03/twitter_gender/twitter-signup.png"/>
+					<figcaption>
+						<strong>Figure 1.</strong>
+						Twitter's signup form
+					</figcaption>
+				</figure>
+				<p>
+					(You don't have to tell Twitter <em>where you live</em> or your <em>date of birth</em> or <em>gender</em>, etc.)
+				</p>
+				<p>
+					And really, the <em>name</em> doesn't even have to be real.
+					Using a pseudonym or any other name you want to use is just fine.
+					If you want your name on Twitter to be "Panda Puncher", go right ahead.
+				</p>
+				<p>
+					(This is one of the strengths and attractions of Twitter in my opinion.)
+				</p>
+			</section>
+
+
+			<section>
+				<h2>Inferring Gender</h2>
+
+				<p>
+					Even though Twitter doesn't ask for your <em>gender</em>, doesn't mean no one cares about it.
+				</p>
+				<p>
+					(People involving in <em>advertising</em> care about it a lot. People involved with <em>identity</em>. People involved in fraud detection care too.)
+				</p>
+				<p>
+					But if someone doesn't self-assert their <em>gender</em> (to say they are <em>male</em> or <em>female</em>), <strong>can we infer someone's gender from their Twitter account?</strong>
+				</p>
+				<p>
+					I'd say the answer is "yes".
+					(Probably because I've already worked on commercial projects that did <em>gender prediction</em> with similar types of data :-) )
+				</p>
+				<p>
+					I think you can infer someone's gender without them <em>telling you</em> what it is, based on <em>clues</em> they leave around, with varying degrees of success.
+				</p>
+				<p><strong>
+					Consider, for example, a population that is 50% male and 50% female.
+					If you guessed "<em>male</em>" every single time, then (with a random sample) your <em>gender prediction</em> would be accurate 50% of the time.
+					This is kind of like the idiom: <em>a stopped clock is right twice a day</em>.
+				</strong></p>
+				<p>
+					Any <em>gender prediction</em> engine we consider "good" should do better than this.
+					And I can even think of different ways that may work.
+				</p>
+
+				<section>
+					<h3>Examples</h3>
+
+					<p>
+						For example, consider the profile of a friend of mine of Twitter, in <strong>figure 2</strong>.
+					</p>
+					<figure>
+						<img src="../../../data/post/2013/03/03/twitter_gender/harpersnotes-clues.png"/>
+						<figcaption>
+							<strong>Figure 2.</strong>
+							Twitter profile of <a href="http://twitter.com/harpersnotes">@harpersnotes</a> with 3 clues useful for <em>gender predication</em> marked in red.
+						</figcaption>
+					</figure>
+					<p>
+						(Remember, these <em>clues</em> are for a <em>machine learning</em> system to use.
+						Of course a human can do this categorization pretty easily, but we want to automate it.)
+					</p>
+					<p>
+						The first clue is the <em>avatar image</em>.
+						A <em>photo</em> was used.
+						We could use <em>computer vision</em> to infer the gender of that image.
+					</p>
+					<p>
+						The second clue is the <em>given name</em> ("Richard").
+						Many <em>given names</em> are highly gender skewed.
+						(I suspect there are probably <strong>a lot</strong> more males with the name "Richard" than there are females.
+						Which would probably make it a "good" <em>gender predictor</em>.)
+					</p>
+					<p>
+						The third clue probably seems less obvious, but the Twitter profile <em>description</em> can also give a clue to the gender.
+						It could be that males and females use language differently, and that the language used in the <em>description</em> is a <em>gender predictor</em>.
+					</p>
+					<p>
+						There is actually a fourth clue not marked in the <strong>figure 2</strong>.
+						The Twitter <em>screen name</em> ("@harpersnotes").
+						Like the third clue, it could be that males and females use language differently for the Twitter screen name too.
+						And thus the words used the Twitter screen name could be a <em>gender predictor</em>.
+					</p>
+					<p>
+						Also, if the Twitter <em>screen name</em> contains a person's <em>given name</em> (ex: <a href="http://twitter.com/tom_hartley">@tom_hartley</a>, <a href="http://twitter.com/bradleyvoytek">@bradleyvoytek</a> and <a href="https://twitter.com/JonathanLWai">@JonathanLWai</a>),
+						then that may be able to be used as a "good" <em>gender predictor</em> as well.
+					</p>
+					<p>
+						As a possible fifth clue also not shown in <strong>figure 2</strong>, it is conceivable that the location could be a <em>gender predictor</em>.
+						Perhaps not the location in <strong>figure 2</strong> ("Albuquerque, New Mexico, USA "),
+						but say if the location is somewhere where there is a strong gender skew, such as India or China, or even a remote mining town in Northern Canada where the only people living there are mining workers, and all the miners are males.
+					</p>
+					<p>
+						(And Twitter does offer us other <em>clues</em> not shown in <strong>figure 2</strong>.
+						Perhaps the Twitter user ID gives us a <em>clue</em>.
+						For example, if more males signed up for Twitter in the first 3 years that Twitter existed, and we know that Twitter user IDs with a range between certain numbers are from that era,
+						then we can predict <em>male</em> for all users with Twitter user IDs we think are from that era, and predict nothing outside of that.)
+					</p>
+					<p>
+						Now obviously, in general, some of these <em>clues</em> are going to be better <em>gender predictors</em> than others.
+						(Perhaps the <em>given name</em> is a better <em>gender predictor</em> than the <em>avatar image</em> because many people don't use photos for their <em>avatar image</em>.)
+					</p>
+					<p>
+						And for specific profiles, which is <em>gender predictor</em> is accurate will vary; but we expect trends.
+					</p>
+					<p>
+						Here's an example of another friend whose profile really gives us no clues, or barely any, as seen in <strong>figure 3</strong>:
+					</p>
+					<figure>
+						<img src="../../../data/post/2013/03/03/twitter_gender/rnadomtc-clues.png"/>
+						<figcaption>
+							<strong>Figure 3.</strong>
+							Twitter profile of <a href="http://twitter.com/rNadomtC">@rNadomtC</a>.
+						</figcaption>
+					</figure>
+					<p>
+						Probably not much in the way of clues here, in <strong>figure 3</strong>.
+						Not unless <em>not giving clues</em> is gender skewed :-)
+					</p>
+					<p>
+						(Note that I'm not trying to list out every possible data source that may be useful for <em>gender prediction</em>.
+						I am only trying to give you a "flavor" of the strategies that could be used.
+						Is there a gender skew with the apps people use and which send tweets to twitter?
+						Is there a gender skew in the <em>time of day</em> people tweet, or retweet, etc?
+						Does a person's social network graph (in the <em>graph theory</em> sense of the term) give clues to their gender?
+						There are many possibilities one can test and build <em>machine learning</em> systems around.)
+					</p>
+				</section>
+
+				<section>
+					<h3>Accuracy</h3>
+					<p>
+						Now, this doesn't mean a single <em>gender prediction</em> strategy will always be 100% accurate.
+						(There is very likely going to be some level of error.)
+						But these strategies will have some level of accuracy.
+						And even with an error, these <em>gender predictions</em> may still be useful.
+					</p>
+					<p>
+						<strong>You could even (somehow) combine these different <em>gender prediction</em> strategies together, to create a single <em>more accurate</em> strategy for <em>gender prediction</em> with a lower error rate.</strong>
+					</p>
+				</section>
+
+				<section>
+					<h3>Analysis</h3>
+					<p>
+						Developing a <em>gender prediction</em> "engine" really could be done by just taking a reference data set of known male and female accounts and doing some analysis work.
+						(I.e., get a set of Twitter accounts that you know the gender for, and use some statistics, machine learning and educated guesses to discover differences between various <em>things</em> that are more common with males than female, and what <em>things</em> are more common with females than males. And use that to come up with a model you can use for making <em>gender predictions</em>.)
+						And then validate the resulting model against another (separate) set of Twitter accounts for which you know the gender.
+						(Just to verify that your model is a "good" one.)
+					</p>
+					<p>
+						Of course, these "engines" can have all sorts of nuances, special conditions, and may need to be updated from time to time, as past analysis work done may no longer be applicable.
+					</p>
+				</section>
+
+				<section>
+					<h3>Tweets</h3>
+					<p>
+						Another <em>clue</em> I have yet to mention (because I wanted to save it for last) are a person's tweets.
+						Specifically, the text found in a person's tweet.
+					</p>
+					<p>
+						Are there differences between the way males and females tweet?
+						I suspect so (at least some of the time, if not a lot of the time).
+					</p>
+					<p>
+						A lot more can be said about this.
+					</p>
+				</section>
+			</section>
+
+	
+
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-03-02T12:11:09-0800">March 3, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/03/02/gender_as_a_fraud_predictor/">Gender as a Fraud Predictor</a></h1>
+			<address>
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+		<p>
+			Is gender useful in predicting found?
+			Turns out the answer is: <em>sometimes</em>.
+			<a href="http://www.bakadesuyo.com/">Eric Barker</a> found <a href="http://www.bakadesuyo.com/2011/05/how-many-women-pay-for-online-porn/">an interesting quote</a> from the book "A Billion Wicked Thoughts: What the World's Largest Experiment Reveals about Human Desire" that gives an example of when it can matter.
+		</p>
+		<blockquote>
+			The most popular paysites featuring adult videos, including Brazzers, Bang Bros, and Reality Kings, typically attract an audience that is around 75 percent men.
+			Of course, that does mean that one out of four visitors is a woman -- a minority, though a significant minority.
+			But when it comes to actually paying for porn, the gender gap widens into an abyss.
+			According to CCBill, the billing service most commonly used by the online adult industry, <strong>only 2 percent of all subscriptions to pornography sites are made on credit cards with women's names.
+			In fact, CCBill even flags female names as potential fraud, since so many of these charges result in an angry wife or mother demanding a refund for the misuse of her card.</strong>
+		</blockquote>
+		<p>
+			(Emphasis mine.)
+		</p>
+	
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
+				<time datetime="2013-02-14T21:41:21-0800">February 2, 2013</time>
+			</div>
+			<h1><a href="../../../post/2013/02/14/hello_world/">Hello World!</a></h1>
+			<address>
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+		<p>
+			Hello world! 
+			This is the first post on <a href="http://datascholars.com/">DataScholars</a>.
+			This post is really just a marker, to signify the beginning of this blog.
+			This is a blog about
+			<em>data science</em>,
+			<em>computer science</em>,
+			<em>machine learning</em>,
+			<em>artificial intelligence</em>,
+			<em>data mining</em>,
+			<em>analysis</em>,
+			and
+			<em>visualization</em>.
+		</p>
+	
+
+
+			</div>
+			<div class="comments">
+				no comments
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<footer>
+			<a href="http://twitter.com/DataScholars"><img src="i/twitter.png" alit="twitter"></a>
+		</footer>
+
+
+		<script src="3/jquery/jquery-1.9.1.min.js"></script>
+		<script src="3/typeset/src/linked-list.js"></script>
+		<script src="3/typeset/src/linebreak.js"></script>
+		<script src="3/typeset/lib/hypher.js"></script>
+		<script src="3/typeset/lib/en-us.js"></script>
+	</body>
+</html>

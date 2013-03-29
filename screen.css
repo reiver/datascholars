@@ -55,16 +55,27 @@ body { color: #303030 }
 
 header h1 { text-align: center; font-variant: small-caps; font-size: 380% }
 
-header nav { 
+header         nav , 
+div.pagination nav { 
 	text-align: center;
 	font-size: 0.875em;
 	background: #fbfbfb;
 	border-top: 1px solid #eaeaea;
 	border-bottom: 1px solid #eaeaea
 }
-header nav ul,
-header nav ol { margin: 0; padding: 0; list-style: none }
-header nav li { display: inline-block; text-transform: uppercase }
+header         nav ul ,
+div.pagination nav ul ,
+header         nav ol ,
+div.pagination nav ol {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+header         nav li ,
+div.pagination nav li {
+	display: inline-block;
+	text-transform: uppercase
+}
 
 .blurb { margin-top: 1em; font-size: 0.875em; text-align: center; color: #707070 }
 
@@ -105,9 +116,18 @@ a,
 a:hover,
 a:visited { color: #303030; text-decoration: none }
 
-header nav a { color: #909090 }
-header nav a:hover { text-decoration: underline }
-header nav li a { display: inline-block; padding: 0.4em 1.4em }
+header         nav a ,
+div.pagination nav a {
+	color: #909090
+}
+header         nav a:hover ,
+div.pagination nav a:hover {
+	text-decoration: underline
+}
+header         nav li a ,
+div.pagination nav li a {
+	display: inline-block; padding: 0.4em 1.4em
+}
 
 article a { text-decoration: underline }
 article h1 a { text-decoration: none }

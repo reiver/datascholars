@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Fri, 29 Mar 2013 09:32:55 -0700</lastBuildDate>
+		<lastBuildDate>Sat, 30 Mar 2013 08:11:19 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>New Blog on Optimization</title>
+			<link>http://datascholars.com/post/2013/03/30/new_optimization_blog/</link>
+			<pubDate>Sat, 30 Mar 2013 08:11:19 -0700</pubDate>
+		</item>
 		<item>
 			<title>Don Turnbull's Data Science Talk Slides #datascienceyvr</title>
 			<link>http://datascholars.com/post/2013/03/29/don_turnbull_data_science_yvr/</link>

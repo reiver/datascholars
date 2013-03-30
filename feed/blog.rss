@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sat, 30 Mar 2013 08:11:19 -0700</lastBuildDate>
+		<lastBuildDate>Sat, 30 Mar 2013 08:50:17 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Visual Analytics Meetup on April 4th</title>
+			<link>http://datascholars.com/post/2013/03/30/visual_analytics_2013-04-04/</link>
+			<pubDate>Sat, 30 Mar 2013 08:50:17 -0700</pubDate>
+		</item>
 		<item>
 			<title>New Blog on Optimization</title>
 			<link>http://datascholars.com/post/2013/03/30/new_optimization_blog/</link>

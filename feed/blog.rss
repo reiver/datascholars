@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 31 Mar 2013 14:44:32 -0700</lastBuildDate>
+		<lastBuildDate>Mon, 1 Apr 2013 07:39:33 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Many Downloadable Twitter Archives Available For Researchers</title>
+			<link>http://datascholars.com/post/2013/04/01/download_twitter_archives/</link>
+			<pubDate>Mon, 1 Apr 2013 07:39:33 -0700</pubDate>
+		</item>
 		<item>
 			<title>Don Turnbull's Book Recommendations For Data Scientists #datascienceyvr</title>
 			<link>http://datascholars.com/post/2013/03/31/don_turnbull_book_recommendations/</link>

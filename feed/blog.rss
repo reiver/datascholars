@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 2 Apr 2013 06:11:56 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 3 Apr 2013 07:14:42 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>The Elements of Statistical Learning: Data Mining, Inference, and Prediction (Trevor Hastie, Robert Tibshirani, Jerome Friedman)</title>
+			<link>http://datascholars.com/post/2013/04/03/book_elements_of_statistical_learning/</link>
+			<pubDate>Wed, 3 Apr 2013 07:14:42 -0700</pubDate>
+		</item>
 		<item>
 			<title>Yelp Dataset Challenge; And A New Data Set To Play With</title>
 			<link>http://datascholars.com/post/2013/04/02/yelp_dataset_challenge/</link>

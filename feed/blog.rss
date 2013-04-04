@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 3 Apr 2013 07:14:42 -0700</lastBuildDate>
+		<lastBuildDate>Thu, 4 Apr 2013 07:38:07 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<titleJosh Wills: Data Scientist Definition></title>
+			<link>http://datascholars.com/post/2013/04/04/josh_wills_data_scientist_definition/</link>
+			<pubDate>Thu, 4 Apr 2013 07:38:07 -0700</pubDate>
+		</item>
 		<item>
 			<title>The Elements of Statistical Learning: Data Mining, Inference, and Prediction (Trevor Hastie, Robert Tibshirani, Jerome Friedman)</title>
 			<link>http://datascholars.com/post/2013/04/03/book_elements_of_statistical_learning/</link>

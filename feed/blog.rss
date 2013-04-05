@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 4 Apr 2013 07:38:07 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 5 Apr 2013 06:57:47 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>R 3.0.0 Released</title>
+			<link>http://datascholars.com/post/2013/04/05/r_3_released/</link>
+			<pubDate>Fri, 5 Apr 2013 06:57:47 -0700</pubDate>
+		</item>
 		<item>
 			<title>Josh Wills: Data Scientist Definition</title>
 			<link>http://datascholars.com/post/2013/04/04/josh_wills_data_scientist_definition/</link>

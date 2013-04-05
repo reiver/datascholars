@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="reiver" />
+
+		<title>WTF: The Who to Follow Service at Twitter (Pankaj Gupta, Ashish Goel, Jimmy Lin, Aneesh Sharma, Dong Wang, Reza Zadeh)</title>
+
+		<meta name="keywords" content="twitter" />
+
+		<meta name="DC.Date.Created" content="2013-04-05T07:24:22-07:00" />
+	</head>
+	<body>
+		<blockquote cite="http://www.stanford.edu/~rezab/papers/wtf_overview.pdf">
+			<p>
+				WTF ("Who to Follow") is Twitter's user recommendation service, which is responsible for creating millions of connections daily between users based on shared interests, common connections, and other related factors.
+				This paper provides an architectural overview and shares lessons we learned in building and running the service over the past few years.
+				Particularly noteworthy was our design decision to process the entire Twitter graph in memory on a single server, which signicantly reduced architectural complexity and allowed us to develop and deploy the service in only a few months.
+				At the core of our architecture is Cassovary, an open-source in-memory graph processing engine we built from scratch for WTF.
+				Besides powering Twitter's user recommendations, Cassovary is also used for search, discovery, promoted products, and other services as well.
+				We describe and evaluate a few graph recommendation algorithms implemented in Cassovary, including a novel approach based on a combination of random walks and SALSA.
+				Looking into the future, we revisit the design of our architecture and comment on its limitations, which are presently being addressed in a second-generation system under development.
+			</p>
+		</blockquote>
+		<p>
+			[<a href="http://www.stanford.edu/~rezab/papers/wtf_overview.pdf">PDF</a>]
+		</p>
+	</body>
+</html>
+

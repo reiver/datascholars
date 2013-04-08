@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 7 Apr 2013 08:40:32 -0700</lastBuildDate>
+		<lastBuildDate>Mon, 8 Apr 2013 08:38:03 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>WTF: The Who to Follow Service at Twitter (Pankaj Gupta, Ashish Goel, Jimmy Lin, Aneesh Sharma, Dong Wang, Reza Zadeh)</title>
+			<link>http://datascholars.com/post/2013/04/08/twitter_who_to_follow/</link>
+			<pubDate>Mon, 8 Apr 2013 08:38:03 -0700</pubDate>
+		</item>
 		<item>
 			<title>Chaotic Boltzmann machines (Hideyuki Suzuki, Jun-ichi Imura, Yoshihiko Horio, Kazuyuki Aihara)</title>
 			<link>http://datascholars.com/post/2013/04/07/chaotic_boltzmann_machines/</link>

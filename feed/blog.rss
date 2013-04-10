@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 9 Apr 2013 18:48:51 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 10 Apr 2013 09:35:40 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Regret Analysis of Stochastic and Nonstochastic Multi-armed Bandit Problems (S&#233;bastien Bubeck, Nicol&#242; Cesa-Bianchi)</title>
+			<link>http://datascholars.com/post/2013/04/10/book_regret_analysis/</link>
+			<pubDate>Wed, 10 Apr 2013 09:35:40 -0700</pubDate>
+		</item>
 		<item>
 			<title>PolyGlot (Un)Conference 2013</title>
 			<link>http://datascholars.com/post/2013/04/09/polyglot_unconference_2013/</link>

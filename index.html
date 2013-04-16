@@ -45,6 +45,110 @@
 
 		<article>
 			<div class="pubdate">
+				<time datetime="2013-04-16T07:04:17-0700">April 16, 2013</time>
+			</div>
+			<h1><a href="post/2013/04/16/spark_cli_graphs/">Sprak: Graph Visualization From The Command Line</a></h1>
+			<address
+				 
+			>
+				 
+				by <a href="http://twitter.com/reiver">reiver</a>
+			</address>
+			<div>
+
+
+
+		<p>
+			So you are at the command line.
+			You have a bunch of data you pulled from the database or a file.
+			You did a bunch of "magic" to <code>awk</code>, <code>sort</code> and other command line tools to extract the "important" parts of the data.
+		</p>
+		<p>
+			Now you want to see that "important" extract in a graph.
+		</p>
+		<p>
+			What's the fastest way to visualize it?
+			What's the fastest to see a graph?
+		</p>
+		<p>
+			MS Excel?
+			OpenOffice Calc?
+			GNU Octave?
+			R?
+		</p>
+		<p>
+			No, no, no and no.
+		</p>
+		<p>
+			The fastest way is using  <a href="http://zachholman.com/spark/">spark</a>.
+		</p>
+		<p>
+			 <a href="http://zachholman.com/spark/">Spark</a>  lets you create and view graphs right from the command line.
+		</p>
+		<p>
+			Here is a very basic example:
+		</p>
+		<figure>
+			<figcaption>
+				<pre><code>
+spark 0 30 55 80 33 150
+				</code></pre>
+				<strong>Figure 1.</strong>
+				Very basic usage of <code>spak</code>.
+			</figcaption>
+		</figure>
+		<figure>
+			<figcaption>
+				<pre><code>
+▁▂▃▅▂▇
+				</code></pre>
+				<strong>Figure 2.</strong>
+				Output of <code>spark</code> command in <em>figure 1</em>.
+			</figcaption>
+		</figure>
+		<p>
+			And here is a more typical example:
+		</p>
+		<figure>
+			<figcaption>
+				<pre><code>
+curl http://earthquake.usgs.gov/earthquakes/catalogs/eqs1day-M1.txt --silent | sed '1d' | cut -d, -f9 | spark
+				</code></pre>
+				<strong>Figure 3.</strong>
+				More typical usage of <code>spak</code>.
+				Magnitude of earthquakes over 1.0 in the last 24 hours.
+			</figcaption>
+		</figure>
+		<figure>
+			<figcaption>
+				<pre><code>
+ ▅▆▂▃▂▂▂▅▂▂▅▇▂▂▂▃▆▆▆▅▃▂▂▂▁▂▂▆▁▃▂▂▂▂▃▂▆
+				</code></pre>
+				<strong>Figure 4.</strong>
+				Output of <code>spark</code> command in <em>figure 3</em>.
+			</figcaption>
+		</figure>
+		<p>
+			(<a href="https://github.com/holman/spark/wiki/Wicked-Cool-Usage">More spark examples here</a>.)
+		</p>
+		<p>
+			Check out <a href="http://zachholman.com/spark/">spark</a>.
+		</p>
+	
+
+
+
+			</div>
+		</article>
+
+
+
+
+
+
+
+		<article>
+			<div class="pubdate">
 				<time datetime="2013-04-15T06:59:44-0700">April 15, 2013</time>
 			</div>
 			<h1><a href="post/2013/04/15/ontario_open_data/">We Love Open Data: Ontario Open Data</a></h1>

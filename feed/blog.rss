@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 16 Apr 2013 07:04:17 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 17 Apr 2013 07:27:54 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Practical Tools For Exploring Data And Models (Hadley Alexander Wickham)</title>
+			<link>http://datascholars.com/post/2013/04/17/tools_for_exploring_data_and_models/</link>
+			<pubDate>Wed, 17 Apr 2013 07:27:54 -0700</pubDate>
+		</item>
 		<item>
 			<title>Sprak: Graph Visualization From The Command Line</title>
 			<link>http://datascholars.com/post/2013/04/16/spark_cli_graphs/</link>

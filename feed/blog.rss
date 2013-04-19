@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 18 Apr 2013 07:02:36 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 19 Apr 2013 06:15:44 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Video Lectures: Information Theory, Pattern Recognition, and Neural Networks, by David J. C. MacKay</title>
+			<link>http://datascholars.com/post/2013/04/19/information_theory_pattern_recognition_and_neural_networks/</link>
+			<pubDate>Fri, 19 Apr 2013 06:15:44 -0700</pubDate>
+		</item>
 		<item>
 			<title>Hadley Alexander Wickham: Speaking at Vancouver Meetup on Wednesday May 8th at 7:00 PM</title>
 			<link>http://datascholars.com/post/2013/04/18/hadley_alexander_wickham_vancouver/</link>

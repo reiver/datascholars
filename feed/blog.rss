@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Fri, 19 Apr 2013 06:15:44 -0700</lastBuildDate>
+		<lastBuildDate>Sun, 21 Apr 2013 09:45:23 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>New: PLOS Text Mining</title>
+			<link>http://datascholars.com/post/2013/04/21/plos_text_mining_collection/</link>
+			<pubDate>Sun, 21 Apr 2013 09:45:23 -0700</pubDate>
+		</item>
 		<item>
 			<title>Video Lectures: Information Theory, Pattern Recognition, and Neural Networks, by David J. C. MacKay</title>
 			<link>http://datascholars.com/post/2013/04/19/information_theory_pattern_recognition_and_neural_networks/</link>

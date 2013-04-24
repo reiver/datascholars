@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 22 Apr 2013 07:28:02 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 24 Apr 2013 07:17:48 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Networks, Crowds, and Markets: Reasoning About a Highly Connected World (David Easley, Jon Kleinberg)</title>
+			<link>http://datascholars.com/post/2013/04/24/networks_crowds_and_markets/</link>
+			<pubDate>Wed, 24 Apr 2013 07:17:48 -0700</pubDate>
+		</item>
 		<item>
 			<title>Analysing Mood Patterns in the United Kingdom through Twitter Content (Vasileios Lampos, Thomas Lansdall-Welfare, Ricardo Araya, Nello Cristianini)</title>
 			<link>http://datascholars.com/post/2013/04/22/analysing_mood_patterns/</link>

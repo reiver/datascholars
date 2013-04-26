@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 24 Apr 2013 07:17:48 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 26 Apr 2013 07:08:21 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>JSNetworkX: Visualizing Graphs On The Web Using JavaScript</title>
+			<link>http://datascholars.com/post/2013/04/26/jsnetworkx/</link>
+			<pubDate>Fri, 26 Apr 2013 07:08:21 -0700</pubDate>
+		</item>
 		<item>
 			<title>Networks, Crowds, and Markets: Reasoning About a Highly Connected World (David Easley, Jon Kleinberg)</title>
 			<link>http://datascholars.com/post/2013/04/24/networks_crowds_and_markets/</link>

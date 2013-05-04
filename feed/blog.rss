@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Fri, 26 Apr 2013 07:08:21 -0700</lastBuildDate>
+		<lastBuildDate>Sat, 4 May 2013 09:46:35 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title> Revealing social networks of spammers through spectral clustering (Kevin S. Xu, Mark Kliger, Yilun Chen, Peter J. Woolf, Alfred O. Hero III)</title>
+			<link>http://datascholars.com/post/2013/05/04/revealing_social_networks/</link>
+			<pubDate>Sat, 4 May 2013 09:46:35 -0700</pubDate>
+		</item>
 		<item>
 			<title>JSNetworkX: Visualizing Graphs On The Web Using JavaScript</title>
 			<link>http://datascholars.com/post/2013/04/26/jsnetworkx/</link>

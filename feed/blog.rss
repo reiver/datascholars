@@ -6,14 +6,19 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sat, 4 May 2013 09:46:35 -0700</lastBuildDate>
+		<lastBuildDate>Sun, 5 May 2013 07:36:27 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
 		<item>
-			<title> Revealing social networks of spammers through spectral clustering (Kevin S. Xu, Mark Kliger, Yilun Chen, Peter J. Woolf, Alfred O. Hero III)</title>
+			<title>A Global Geometric Framework for Nonlinear Dimensionality Reduction (Joshua B. Tenenbaum, Vin de Silva, John C. Langford)</title>
+			<link>http://datascholars.com/post/2013/05/05/nonlinear_dimensionality_reduction/</link>
+			<pubDate>Sun, 5 May 2013 07:36:27 -0700</pubDate>
+		</item>
+		<item>
+			<title>Revealing social networks of spammers through spectral clustering (Kevin S. Xu, Mark Kliger, Yilun Chen, Peter J. Woolf, Alfred O. Hero III)</title>
 			<link>http://datascholars.com/post/2013/05/04/revealing_social_networks/</link>
 			<pubDate>Sat, 4 May 2013 09:46:35 -0700</pubDate>
 		</item>

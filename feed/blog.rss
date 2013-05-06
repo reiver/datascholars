@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 5 May 2013 07:36:27 -0700</lastBuildDate>
+		<lastBuildDate>Mon, 6 May 2013 07:23:46 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Video Lectures: Signals and Systems, by Alan V. Oppenheim</title>
+			<link>http://datascholars.com/post/2013/05/06/signals_and_systems/</link>
+			<pubDate>Mon, 6 May 2013 07:23:46 -0700</pubDate>
+		</item>
 		<item>
 			<title>A Global Geometric Framework for Nonlinear Dimensionality Reduction (Joshua B. Tenenbaum, Vin de Silva, John C. Langford)</title>
 			<link>http://datascholars.com/post/2013/05/05/nonlinear_dimensionality_reduction/</link>

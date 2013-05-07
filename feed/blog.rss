@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 6 May 2013 07:23:46 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 7 May 2013 06:11:54 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>TOMORROW: Hadley Alexander Wickham: Speaking at Vancouver Meetup on Wednesday May 8th at 7:00 PM</title>
+			<link>http://datascholars.com/post/2013/05/07/hadley_alexander_wickham_vancouver/</link>
+			<pubDate>Tue, 7 May 2013 06:11:54 -0700</pubDate>
+		</item>
 		<item>
 			<title>Video Lectures: Signals and Systems, by Alan V. Oppenheim</title>
 			<link>http://datascholars.com/post/2013/05/06/signals_and_systems/</link>

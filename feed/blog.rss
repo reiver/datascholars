@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 8 May 2013 22:20:44 -0700</lastBuildDate>
+		<lastBuildDate>Sun, 12 May 2013 08:39:40 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Video Lectures: Convex Optimization, by Stephen Boyd</title>
+			<link>http://datascholars.com/post/2013/05/12/convex_optimization/</link>
+			<pubDate>Sun, 12 May 2013 08:39:40 -0700</pubDate>
+		</item>
 		<item>
 			<title>Stein's Paradox in Statistics (Bradley Efron, Carl Morris)</title>
 			<link>http://datascholars.com/post/2013/05/08/stein_paradox_in_statistics/</link>

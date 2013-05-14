@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Sun, 12 May 2013 08:39:40 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 14 May 2013 07:12:50 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Approximating Bayesian inference with a sparse distributed memory system (Joshua T. Abbott, Jessica B. Hamrick, Thomas L. Griffiths)</title>
+			<link>http://datascholars.com/post/2013/05/14/bayesian_sparse_distributed_memory/</link>
+			<pubDate>Tue, 14 May 2013 07:12:50 -0700</pubDate>
+		</item>
 		<item>
 			<title>Video Lectures: Convex Optimization, by Stephen Boyd</title>
 			<link>http://datascholars.com/post/2013/05/12/convex_optimization/</link>

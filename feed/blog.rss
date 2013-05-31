@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 30 May 2013 07:35:06 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 31 May 2013 07:59:52 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>John Langford on Machine Learning</title>
+			<link>http://datascholars.com/post/2013/05/31/john_langford_on_machine_learning/</link>
+			<pubDate>Fri, 31 May 2013 07:59:52 -0700</pubDate>
+		</item>
 		<item>
 			<title>Vowpal Wabbit (VW): Fast Open Source Optimization</title>
 			<link>http://datascholars.com/post/2013/05/30/vw/</link>

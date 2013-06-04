@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Fri, 31 May 2013 07:59:52 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 04 May 2013 07:13:20 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>A Bayesian Approach for Predicting the Popularity of Tweets</title>
+			<link>http://datascholars.com/post/2013/06/04/bayesian_predicting_the_popularity_of_tweets/</link>
+			<pubDate>Tue, 04 May 2013 07:13:20 -0700</pubDate>
+		</item>
 		<item>
 			<title>John Langford on Machine Learning</title>
 			<link>http://datascholars.com/post/2013/05/31/john_langford_on_machine_learning/</link>

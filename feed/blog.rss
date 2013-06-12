@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Wed, 05 June 2013 06:44:48 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 12 June 2013 07:12:13 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Recent Developments in Deep Learning</title>
+			<link>http://datascholars.com/post/2013/06/12/recent_developments_in_deep_learning/</link>
+			<pubDate>Wed, 12 June 2013 07:12:13 -0700</pubDate>
+		</item>
 		<item>
 			<title>Deep Learning using Support Vector Machines (Yichuan Tang)</title>
 			<link>http://datascholars.com/post/2013/06/05/deep_learning_using_svm/</link>

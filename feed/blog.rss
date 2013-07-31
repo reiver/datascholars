@@ -6,12 +6,22 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Tue, 25 June 2013 06:32:29 -0700</lastBuildDate>
+		<lastBuildDate>Tue, 30 July 2013 21:51:23 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Tommy Levi's "Data Science in the Wild" Slides</title>
+			<link>http://datascholars.com/post/2013/07/30/tommy_levi_data_science_slides/</link>
+			<pubDate>Tue, 30 July 2013 21:51:23 -0700</pubDate>
+		</item>
+		<item>
+			<title>Yoshua Bengio's AAAI Tutorial on Deep Learning of Representations</title>
+			<link>http://datascholars.com/post/2013/07/14/yoshua_bengio_deep_learning/</link>
+			<pubDate>Sun, 14 July 2013 22:59:21 -0700</pubDate>
+		</item>
 		<item>
 			<title>Data Science in the Wild: Tommy Levi speaking at Vancouver Meetup on Wednesday June 26th at 6:30 PM</title>
 			<link>http://datascholars.com/post/2013/06/25/tommy_levi_data_science/</link>

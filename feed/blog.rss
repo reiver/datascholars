@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Fri, 02 Aug 2013 06:38:02 -0700</lastBuildDate>
+		<lastBuildDate>Thu, 08 Aug 2013 06:46:26 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Very Simple Classification Rules Perform Well on Most Commonly Used Datasets (Robert C. Holte)</title>
+			<link>http://datascholars.com/post/2013/08/08/very_simple_classification_rules/</link>
+			<pubDate>Thu, 08 Aug 2013 06:46:26 -0700</pubDate>
+		</item>
 		<item>
 			<title>Applied Data Science (Ian Langmore, Daniel Krasner)</title>
 			<link>http://datascholars.com/post/2013/08/02/applied_data_science_book/</link>

@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 26 Sep 2013 06:22:29 -0700</lastBuildDate>
+		<lastBuildDate>Wed, 02 Oct 2013 06:43:01 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Exploiting Similarities among Languages for Machine Translation (Tomas Mikolov, Quoc V. Le, Ilya Sutskever)</title>
+			<link>http://datascholars.com/post/2013/10/02/exploiting_similarities_among_languages_for_machine_translation/</link>
+			<pubDate>Wed, 02 Oct 2013 06:43:01 -0700</pubDate>
+		</item>
 		<item>
 			<title>Video Tutorials: Intro to R</title>
 			<link>http://datascholars.com/post/2013/09/26/intro_to_r/</link>

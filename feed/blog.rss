@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 03 Oct 2013 21:17:52 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 11 Oct 2013 23:15:35 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Information Visualization for Large-Scale Data Workflows (Michael Conover)</title>
+			<link>http://datascholars.com/post/2013/10/11/information_visualization_for_large-scale_data_workflows/</link>
+			<pubDate>Fri, 11 Oct 2013 23:15:35 -0700</pubDate>
+		</item>
 		<item>
 			<title>Intro to D3 (Manu Kapoor)</title>
 			<link>http://datascholars.com/post/2013/10/03/under_the_hood_of_d3/</link>

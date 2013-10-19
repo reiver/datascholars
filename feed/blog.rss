@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Thu, 17 Oct 2013 21:03:16 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 18 Oct 2013 19:52:57 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>Document Clustering Based On Non-negative Matrix Factorization (Wei Xu, Xin Liu, Yihong Gong)</title>
+			<link>http://datascholars.com/post/2013/10/18/document_clustering_based_on_non-negative_matrix_factorization/</link>
+			<pubDate>Fri, 18 Oct 2013 19:52:57 -0700</pubDate>
+		</item>
 		<item>
 			<title>Statistical Data Mining Tutorials (Andrew Moore)</title>
 			<link>http://datascholars.com/post/2013/10/17/statistical_data_mining_tutorials/</link>

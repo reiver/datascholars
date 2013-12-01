@@ -6,12 +6,17 @@
 	<channel>
 		<title>DataScholars</title>
 		<description>A blog about data science, computer science, machine learning, artificial intelligence, computational social science, data mining, analysis, and visualization.</description>
-		<lastBuildDate>Mon, 21 Oct 2013 21:54:44 -0700</lastBuildDate>
+		<lastBuildDate>Fri, 01 Nov 2013 21:38:38 -0700</lastBuildDate>
 		<link>http://datascholars.com/</link>
 		<atom:link rel="self" type="application/rss+xml" href="http://datascholars.com/feed/blog.rss" />
 
 
 
+		<item>
+			<title>An Introduction to Variable and Feature Selection (Isabelle Guyon, André Elisseeff)</title>
+			<link>http://datascholars.com/post/2013/11/07/an_introduction_to_variable_and_feature_selection/</link>
+			<pubDate>Fri, 01 Nov 2013 21:38:38 -0700</pubDate>
+		</item>
 		<item>
 			<title>Using Maximum Entropy for Text Classification (Kamal Nigam, John Lafferty, Andrew McCallum)</title>
 			<link>http://datascholars.com/post/2013/10/21/using_maximum_entropy_for_text_classification/</link>
